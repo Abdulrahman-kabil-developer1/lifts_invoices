@@ -1,5 +1,6 @@
-# lifts_invoices
+# lifts_invoices (Python - PyQt5)
 create monthly invoices for elevators company with (Arabic language) and GUI
+
 
 ## screenshots
 ###   - create month invices interface
