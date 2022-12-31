@@ -4,10 +4,10 @@ create monthly invoices for elevators company with (Arabic language) and GUI
 
 ## screenshots
 ###   - create month invices interface
-![create month invoices](https://github.com/Abdulrahman-Kabil-developer/lifts_invoices/blob/main/screenshots/Screenshot%202022-10-08%20002050.png)
+![create month invoices](https://github.com/Abdulrahman-Kabil-developer/lifts_invoices/blob/main/screenshots/Screenshot%202022-10-15%20232019.png)
 
-#### - create one invoice interface
-![create one invoice](https://github.com/Abdulrahman-Kabil-developer/lifts_invoices/blob/main/screenshots/Screenshot%202022-10-08%20002353.png)
+#### - create custom number invoices interface
+![create one invoice](https://github.com/Abdulrahman-Kabil-developer/lifts_invoices/blob/main/screenshots/Screenshot%202022-10-15%20231935.png)
 
 ### - invoice 
   ![invoice](https://github.com/Abdulrahman-Kabil-developer/lifts_invoices/blob/main/screenshots/Screenshot%202022-10-08%20002435.png)
