@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>924</width>
-    <height>782</height>
+    <height>813</height>
    </rect>
   </property>
   <property name="font">
@@ -21,8 +21,8 @@
    <string>انشاء ايصالات الصيانة الشهرية</string>
   </property>
   <property name="windowIcon">
-   <iconset>
-    <normaloff>:/img/pdf.png</normaloff>:/img/pdf.png</iconset>
+   <iconset resource="imgs.qrc">
+    <normaloff>:/img/receipt.png</normaloff>:/img/receipt.png</iconset>
   </property>
   <property name="styleSheet">
    <string notr="true">/*Copyright (c) DevSec Studio. All rights reserved.
@@ -581,7 +581,7 @@ font: 23pt &quot;Simple Outline Pat&quot;;</string>
       <x>150</x>
       <y>680</y>
       <width>627</width>
-      <height>51</height>
+      <height>81</height>
      </rect>
     </property>
     <property name="font">
@@ -592,7 +592,7 @@ font: 23pt &quot;Simple Outline Pat&quot;;</string>
      </font>
     </property>
     <property name="text">
-     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;تم تصميم و برمجة هذا البرنامج بواسطة المهندس/عبدالرحمن رجب قابيل&lt;/p&gt;&lt;p align=&quot;center&quot;&gt;&lt;a href=&quot;https://www.linkedin.com/in/abdulrahman-kabil-5729621a2/&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0000ff;&quot;&gt;linkedIn&lt;/span&gt;&lt;/a&gt; , &lt;a href=&quot;mailto:abdulrahman.ragab.kabil@gmail.com&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0000ff;&quot;&gt;email&lt;/span&gt;&lt;/a&gt; , (+20)1280059456 &lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:13px;&quot;&gt;تم تصميم و برمجة هذا البرنامج بواسطة المهندس/عبدالرحمن رجب قابيل&lt;/span&gt;&lt;/p&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:13px;&quot;&gt;AK-Development 2022 جميع حقوق النشر محفوظة لـ ©&lt;/span&gt;&lt;/p&gt;&lt;p align=&quot;center&quot;&gt;&lt;a href=&quot;https://www.linkedin.com/in/abdulrahman-kabil-5729621a2/&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0000ff;&quot;&gt;linkedIn&lt;/span&gt;&lt;/a&gt;&lt;span style=&quot; font-size:13px;&quot;&gt; , &lt;/span&gt;&lt;a href=&quot;mailto:abdulrahman.ragab.kabil@gmail.com&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0000ff;&quot;&gt;email&lt;/span&gt;&lt;/a&gt;&lt;span style=&quot; font-size:13px;&quot;&gt; , (+20) 1280059456 - 1149312512&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
     </property>
    </widget>
    <widget class="QLineEdit" name="lineEdit_3">
@@ -631,13 +631,13 @@ font: 23pt &quot;Simple Outline Pat&quot;;</string>
      <rect>
       <x>320</x>
       <y>390</y>
-      <width>20</width>
+      <width>52</width>
       <height>16</height>
      </rect>
     </property>
     <property name="minimumSize">
      <size>
-      <width>20</width>
+      <width>52</width>
       <height>0</height>
      </size>
     </property>
@@ -703,6 +703,9 @@ font: 75 20pt &quot;Arial&quot;;</string>
     </property>
    </widget>
    <widget class="QLineEdit" name="lineEdit_2">
+    <property name="enabled">
+     <bool>false</bool>
+    </property>
     <property name="geometry">
      <rect>
       <x>30</x>

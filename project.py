@@ -6,7 +6,6 @@ from bidi.algorithm import get_display
 from PyQt5.QtGui import *
 from PyQt5.QtWidgets import *
 from PyQt5.QtCore import *
-from PyQt5.uic import loadUiType
 from PyQt5 import QtWidgets
 import datetime
 from reportlab.pdfgen import canvas
@@ -14,9 +13,19 @@ from reportlab.lib.units import cm
 from reportlab.lib.pagesizes import A4
 from reportlab.pdfbase import pdfmetrics
 from reportlab.pdfbase.ttfonts import TTFont
-
+from UI import Ui_MainWindow as ui
 pdfmetrics.registerFont(TTFont('Arabic', 'Janna LT Bold.ttf'))
 
+"""
+    Abdulrahman Ragab Abdullah 
+    Cairo-EG
+    ********Contact********
+    abdulrahman.ragab.kabil@gmail.com
+    (+20) 1280059456 - 1149312512
+    https://github.com/Abdulrahman-Kabil-developer1
+    https://www.linkedin.com/in/abdulrahman-kabil-5729621a2/
+    
+"""
 ############ convert int to text ############
 
 def first_to_text(first):
@@ -188,6 +197,18 @@ class create_month_Thread(QThread):
     value_changed = pyqtSignal(float)
     error=pyqtSignal(str)
     info=pyqtSignal(str)
+    num_columns=7
+    def validate_file(self,dataFrame):
+        if (len(dataFrame.columns)!=self.num_columns):
+            self.error.emit("خطأ في ملف البيانات")
+            return False
+        dataTypes=["int64","object","int64","object","object","object","object"]
+        for i in range(self.num_columns):
+            if str(dataFrame.dtypes[i])!=dataTypes[i]:
+                self.error.emit(" خطأ في ملف البيانات العمود رقم "+str(i+1)+" يجب ان يكون من النوع"+dataTypes[i])
+                return False
+        return True
+
     def createPDF_3(self,excel_file,output_file,company_name,phone,codes,logo,month1,year):
         """
             create invoices pdf file from excel file using "reportlab" library (3 invoices per page)
@@ -204,12 +225,14 @@ class create_month_Thread(QThread):
         """
         year=str(year)
         process=pd.read_excel(excel_file)
+        if (self.validate_file(process))==False:
+            return
         invoice_width = 9.9*cm
         # my_path='Doc1.pdf'# file path
         c = canvas.Canvas(output_file,bottomup=1,pagesize=A4)
-        count=0
-        count2=0
-        dont_save=0
+        count=0 #count num of created invoice in current page
+        count2=0 #count num of created invoices till now used to set progress bar value
+        dont_save=1
         c.setFont('Arabic', 14)
         c.translate(cm,cm) # make unite cm
         # c.setStrokeColorRGB(1,0,0) # red colour of line
@@ -221,41 +244,36 @@ class create_month_Thread(QThread):
         c.line(-1*cm,18.8*cm,22*cm,18.8*cm)
         c.line(-1*cm,8.9*cm,22*cm,8.9*cm)
         c.line(7*cm,-1*cm,7*cm,29.7*cm)
+        
         if codes != "":
-            codes=codes.split("-")
-            unfound_codes=[]
-            for code in codes:
-                try:
-                    found=(process['serial'] == int(code)).sum()
-                except:
-                    self.info.emit(" خطأ في رقم الفاتورة يجب ان يكون ارقام صحيحة فقط وليست حروف")
+            codes_list=codes.split("-")
+            try:
+                codes_list=[int(item) for item in codes_list]
+                if len(codes_list)>0:
+                    found_no_print=process.loc[(process.serial.isin(codes_list)) & (process['print or no']=='لا')]
+                    process=process.loc[(process.serial.isin(codes_list)) & (process['print or no']=='نعم') ]
+                    num_process=len(process)
+                    not_found_codes=list(set(codes_list)-(set(process.serial).union(set(found_no_print.serial))))
+                    message=''
+                    if num_process>0:
+                        message='هذة الاكواد سيتم طباعتها \n'+str(list(process.serial))
+                    if len(found_no_print)>0:
+                        message+="\nهذة الاكواد تم العثور عليها في الملف ولكنها لم تمنح اذن الطباعة \n"+str(list(found_no_print.serial))
+                    if len(not_found_codes)>0:
+                        message+="\n هذة الاكواد لم يتم العثور عليها في الملف \n"+str(list(not_found_codes))+"\n"
+                    self.info.emit(message)      
+                if num_process==0:
+                    self.error.emit("لا يوجد اكواد يمكن طباعتها")
                     return
-                if found==0:
-                    self.info.emit("الرقم التسلسلي "+code+"غير موجود بالملف سيتم تخطيه")
-                    unfound_codes.append(code)
-            if len(unfound_codes)>0:
-                for code in unfound_codes:
-                    codes.remove(code)
+            except:
+                self.info.emit(" خطأ في رقم الفاتورة يجب ان يكون ارقام صحيحة فقط وليست حروف")
+                return
+        else:
+            process=process[process['print or no'] == 'نعم']
+            num_process=len(process)
+            
         for proc in range (0,len(process)):
             proc_serial=str(process.iloc[proc,0])
-            print_permition=str(process.iloc[proc].values[4])
-            if codes != "":
-                if len(codes)==0:
-                    self.info.emit("هذة الاكواد غير موجودة بالملف")
-                    dont_save=1
-                    break
-                num_process=len(codes)
-                if proc_serial not in codes:
-                    continue
-            else:
-                num_process=(process['print or no'] == 'نعم').sum()
-            if print_permition=="لا": 
-                if codes!="":
-                    self.info.emit("العمارة "+proc_serial+" لم تطبع لانها لم تحصل على اذن طباعة")
-                    count2+=1
-                    self.value=(count2/num_process)*100
-                    self.value_changed.emit(self.value)
-                continue # skip this process if print_permition is "no"
             proc_name=str(process.iloc[proc].values[1])
             proc_price=str(process.iloc[proc].values[2])
             proc_status=str(process.iloc[proc].values[3])
@@ -271,7 +289,9 @@ class create_month_Thread(QThread):
                 proc_serial=str(process.iloc[proc].values[0])+month+"/"+year[2:4]
                 days=str(checkMonth(int(month)))
             else:
-                month=int(month1)+1
+                month=(int(month1)+1)
+                if(month==13):
+                    month=1
                 if(len(str(month))==1):
                     month="0"+str(month)
                 month=str(month)
@@ -348,8 +368,11 @@ class create_month_Thread(QThread):
             ############################################
             if (company_name==""):
                 cur_r-=1
-            text=arabic_text("للتواصل : "+phone)
-            c.drawCentredString(13.5*cm,cur_r*cm-(count*invoice_width),text)
+            if (phone!=""):
+                text=arabic_text("للتواصل : "+phone)
+                c.drawCentredString(13.5*cm,cur_r*cm-(count*invoice_width),text)
+            else:
+                cur_r-=1
             ############################################
             text=arabic_text("تاريخ السداد : "+"   "+" / "+"  "+" / "+"    20  ")
             c.drawRightString(6*cm,24.25*cm-(count*invoice_width),text)
@@ -370,8 +393,11 @@ class create_month_Thread(QThread):
                 c.line(-1*cm,18.8*cm,22*cm,18.8*cm)
                 c.line(-1*cm,8.9*cm,22*cm,8.9*cm)
                 c.line(7*cm,-1*cm,7*cm,29.7*cm)
+            dont_save=0
+            
         if dont_save==0:
             c.save()
+    
     def createPDF_4(self,input_file,output_file,company_name,phone,codes,logo,month1,year):
         """
             create invoices pdf file from excel file using "reportlab" library (4 invoices per page)
@@ -381,6 +407,7 @@ class create_month_Thread(QThread):
                 output_file (str): pdf file path (result)
                 company_name (str): company name
                 phone (str): company phone
+                codes (str) : if user want only create some process by serial code
                 logo (str): company logo
                 month1 (str): month
                 year (str): year
@@ -388,13 +415,15 @@ class create_month_Thread(QThread):
         """
         year=str(year)
         process=pd.read_excel(input_file)
+        if (self.validate_file(process))==False:
+            return
         num_process=(process['print or no'] == 'نعم').sum()
         invoice_width = 7.425*cm
         # my_path='Doc1.pdf'# file path
         c = canvas.Canvas(output_file,bottomup=1,pagesize=A4)
-        count=0
-        count2=0
-        dont_save=0
+        count=0 #count num of created invoice in current page
+        count2=0 #count num of created invoices till now used to set progress bar value
+        dont_save=1
         c.setFont('Arabic', 14)
         c.translate(cm,cm) #starting point of coordinate to one inch
         # c.setStrokeColorRGB(1,0,0) # red colour of line
@@ -406,47 +435,38 @@ class create_month_Thread(QThread):
         c.line(-1*cm,6.425*cm,22*cm,6.425*cm)
         c.line(7*cm,-1*cm,7*cm,29.7*cm)
         if codes != "":
-            codes=codes.split("-")
-            unfound_codes=[]
-            for code in codes:
-                try:
-                    found=(process['serial'] == int(code)).sum()
-                except:
-                    self.info.emit(" خطأ في رقم الفاتورة يجب ان يكون ارقام صحيحة فقط وليست حروف")
+            codes_list=codes.split("-")
+            try:
+                codes_list=[int(item) for item in codes_list]
+                if len(codes_list)>0:
+                    found_no_print=process.loc[(process.serial.isin(codes_list)) & (process['print or no']=='لا')]
+                    process=process.loc[(process.serial.isin(codes_list)) & (process['print or no']=='نعم') ]
+                    num_process=len(process)
+                    not_found_codes=list(set(codes_list)-(set(process.serial).union(set(found_no_print.serial))))
+                    message=''
+                    if num_process>0:
+                        message='هذة الاكواد سيتم طباعتها \n'+str(list(process.serial))
+                    if len(found_no_print)>0:
+                        message+="\nهذة الاكواد تم العثور عليها في الملف ولكنها لم تمنح اذن الطباعة \n"+str(list(found_no_print.serial))
+                    if len(not_found_codes)>0:
+                        message+="\n هذة الاكواد لم يتم العثور عليها في الملف \n"+str(list(not_found_codes))+"\n"
+                    self.info.emit(message)   
+                if num_process==0:
+                    self.error.emit("لا يوجد اكواد يمكن طباعتها")
                     return
-                if found==0:
-                    self.info.emit("الرقم التسلسلي "+code+"غير موجود بالملف سيتم تخطيه")
-                    unfound_codes.append(code)
-            if len(unfound_codes)>0:
-                for code in unfound_codes:
-                    codes.remove(code)
+            except:
+                self.info.emit(" خطأ في رقم الفاتورة يجب ان يكون ارقام صحيحة فقط وليست حروف")
+                return
+        else:
+            process=process[process['print or no'] == 'نعم']
+            num_process=len(process)
         for proc in range (0,len(process)):
             proc_serial=str(process.iloc[proc,0])
-            print_permition=str(process.iloc[proc].values[4])
-            if codes != "":
-                if len(codes)==0:
-                    self.info.emit("هذة الاكواد غير موجودة بالملف")
-                    dont_save=1
-                    break
-                num_process=len(codes)
-                if proc_serial not in codes:
-                    continue
-            else:
-                num_process=(process['print or no'] == 'نعم').sum()
-            if print_permition=="لا": 
-                if codes!="":
-                    self.info.emit("العمارة "+proc_serial+" لم تطبع لانها لم تحصل على اذن طباعة")
-                    count2+=1
-                    self.value=(count2/num_process)*100
-                    self.value_changed.emit(self.value)
-                continue # skip this process if print_permition is "no"
             proc_name=str(process.iloc[proc].values[1])
             proc_price=str(process.iloc[proc].values[2])
             proc_status=str(process.iloc[proc].values[3])
-            
             if logo!="":
                 c.drawImage(logo, 7.5*cm, 22*cm-(count*invoice_width), width=12*cm, height=6.025*cm,preserveAspectRatio=True, mask='auto')
-            
             if(proc_status=="مؤخر"):
                 month=int(month1)
                 if(len(str(month))==1):
@@ -455,7 +475,9 @@ class create_month_Thread(QThread):
                 proc_serial=str(process.iloc[proc].values[0])+month+"/"+year[2:4]
                 days=str(checkMonth(int(month)))
             else:
-                month=int(month1)+1
+                month=(int(month1)+1)
+                if(month==13):
+                    month=1
                 if(len(str(month))==1):
                     month="0"+str(month)
                 month=str(month)
@@ -560,6 +582,8 @@ class create_month_Thread(QThread):
                 c.line(-1*cm,6.425*cm,22*cm,6.425*cm)
                 c.line(7*cm,-1*cm,7*cm,29.7*cm)
                 #create image as watermark
+            dont_save=0
+            
         if dont_save==0:
             c.save()
 
@@ -575,8 +599,21 @@ class create_month_Thread(QThread):
             self.error.emit(str(e)) 
             return   
 ####################################################################
-MainUI,_ = loadUiType('UI.ui')
-class Main(QMainWindow, MainUI):
+def update_last_dir(dir):
+    with open("last_dir.txt", 'w',encoding='utf-8') as f:
+        f.write(dir)
+def get_last_dir():
+    try:
+        with open("last_dir.txt",'r',encoding='utf-8') as f:
+            last_dir=f.read()
+            if os.path.exists(last_dir):
+                return last_dir
+            else:
+                return os.getcwd()
+    except:
+        return os.getcwd()
+        
+class Main(QMainWindow, ui):
     """a class for the main window"""
     def __init__(self, parent=None):
         super(Main, self).__init__(parent)
@@ -584,10 +621,10 @@ class Main(QMainWindow, MainUI):
         self.setupUi(self)
         self.handel_buttons()
         self.UI_changes()
-        self.setFixedSize(self.size())    #stop the maximize button
+        self.setFixedSize(self.size())#stop the maximize button
+        #self.setWindowIcon(QIcon("img/receipt.png"))
     current_month=datetime.datetime.now().strftime("%m")
     current_year=datetime.datetime.now().strftime("%Y")
-    last_dir=os.getcwd()
     def UI_changes(self):
         """changes in UI like hiding the title bar
         """
@@ -615,22 +652,19 @@ class Main(QMainWindow, MainUI):
     def choose_file_excel(self):
         """open a file dialog to choose the excel file
         """
-        file, _ = QtWidgets.QFileDialog.getOpenFileName(None,directory=self.last_dir,filter="Excel (*.xlsx)")
+        file, _ = QtWidgets.QFileDialog.getOpenFileName(None,directory=get_last_dir(),filter="Excel (*.xlsx)")
         if file:
             self.lineEdit.setText(file)
             filename=file.split("/")[-1]
-            self.last_dir=file.replace(filename,"")
+            update_last_dir(file.replace(filename,""))
         if file==None:
             QMessageBox.warning(self,"Error","يجب إختيار ملف")
             return   
     def choose_file_image(self):
         """open a file dialog to choose the image file"""
-        file, _ = QtWidgets.QFileDialog.getOpenFileName(None,directory=self.last_dir,filter="Image (*.png *.jpg)")
+        file, _ = QtWidgets.QFileDialog.getOpenFileName(None,directory=get_last_dir(),filter="Image (*.png *.jpg)")
         if file:
-            if(self.tabWidget.currentIndex()==0):
-                self.lineEdit_27.setText(file)
-            else:
-                self.lineEdit_28.setText(file)
+            self.lineEdit_27.setText(file)
         if file==None:
             QMessageBox.warning(self,"Error","يجب إختيار ملف")
             return             
@@ -645,9 +679,11 @@ class Main(QMainWindow, MainUI):
         options = QFileDialog.Options()
         options |= QFileDialog.DontUseNativeDialog
         newFileName="ايصالات صيانة المصاعد"+self.comboBox.currentText()+"-"+self.lineEdit_4.text()
-        fileName, _ = QFileDialog.getSaveFileName(self,"Save File",directory=self.last_dir+"\\"+newFileName,filter="PDF Files (*.pdf)", options=options)
+        fileName, _ = QFileDialog.getSaveFileName(self,"Save File",directory=get_last_dir()+"\\"+newFileName,filter="PDF Files (*.pdf)", options=options)
         if fileName:
             self.lineEdit_2.setText(fileName)
+            filename=fileName.split("/")[-1]
+            update_last_dir(fileName.replace(filename,""))
         else:  
             return         
     def create_month_receipts(self):
@@ -662,8 +698,17 @@ class Main(QMainWindow, MainUI):
             QMessageBox. warning(self, "ERROR", "يجب ادخال السنة!")
             return
         if (self.lineEdit_13.text()==''):
-            QMessageBox. warning(self, "ERROR", "يجب ادخال رقم الشركة!")
-            return
+            #create qustion Message no phone "لا " or "اضافة هاتف"
+            msg=QMessageBox()
+            msg.setText("هل تريد إضافة رقم الهاتف للايصالات؟")
+            msg.setWindowTitle('تنبيه')
+            msg.setIcon(QMessageBox.Question)
+            msg.addButton("لا", QMessageBox.NoRole)
+            msg.addButton("اضافة هاتف", QMessageBox.YesRole)
+            msg.setWindowIcon(QIcon("receipt.png"))
+            replay=msg.exec_()
+            if replay==1:
+                return
         if (self.lineEdit_2.text()==''):
             QMessageBox. warning(self, "ERROR", "يجب اختيار مكان حفظ الملف!")
             return
@@ -718,14 +763,22 @@ class Main(QMainWindow, MainUI):
         self.pushButton_2.setEnabled(True)
         QMessageBox.information(self, "info","نود اعلامك بانة:\n"+str(msg))   
     def update_progress(self,value):
-        self.progressBar.setValue(value)
-        self.progressBar.setFormat(("%.02f %%" % value))
-        if value==100:
-            QMessageBox.information(self, "Success", "تم إنشاء الملف بنجاح!")
-            self.progressBar.setValue(0)
-            self.lineEdit_2.setText("")
+        try:
+            self.progressBar.setValue(int(value))
+            self.progressBar.setFormat(("%.02f %%" % value))
+            if value==100:
+                QMessageBox.information(self, "Success", "تم إنشاء الملف بنجاح!")
+                self.progressBar.setValue(0)
+                self.lineEdit_2.setText("")
+                self.pushButton_2.setEnabled(True)
+                return
+            #print error in qmessage
+        except Exception as e:
             self.pushButton_2.setEnabled(True)
+            QMessageBox.warning(self, "ERROR", "لقد وجدنا هذة الاخطاء:\n"+str(e))
+            self.update_progress(0)
             return
+            
         
 def main():
     app = QApplication(sys.argv)

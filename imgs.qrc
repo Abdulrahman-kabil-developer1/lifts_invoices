@@ -1,12 +1,6 @@
 <!DOCTYPE RCC><RCC version="1.0">
     <qresource prefix="">
-     <file>img/convert.png</file>
-     <file>img/go.png</file>
-     <file>img/ppt.png</file>
-     <file>img/word.png</file>
-     <file>img/img.png</file>
-     <file>img/word.png</file>
      <file>img/save.png</file>
-     <file>img/excel.png</file>
+     <file>img/receipt.png</file>
     </qresource>
    </RCC>
