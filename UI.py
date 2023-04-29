@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-# Form implementation generated from reading ui file '.\UI.ui'
+# Form implementation generated from reading ui file 'UI.ui'
 #
 # Created by: PyQt5 UI code generator 5.15.7
 #
@@ -625,7 +625,7 @@ class Ui_MainWindow(object):
         self.pushButton_4.setObjectName("pushButton_4")
         self.lineEdit_27 = QtWidgets.QLineEdit(self.centralwidget)
         self.lineEdit_27.setEnabled(False)
-        self.lineEdit_27.setGeometry(QtCore.QRect(30, 260, 711, 51))
+        self.lineEdit_27.setGeometry(QtCore.QRect(410, 260, 331, 51))
         self.lineEdit_27.setStyleSheet("font: 75 20pt \"Arial\";")
         self.lineEdit_27.setClearButtonEnabled(False)
         self.lineEdit_27.setObjectName("lineEdit_27")
@@ -760,6 +760,31 @@ class Ui_MainWindow(object):
         self.lineEdit.setStyleSheet("font: 75 20pt \"Arial\";")
         self.lineEdit.setClearButtonEnabled(False)
         self.lineEdit.setObjectName("lineEdit")
+        self.lineEdit_28 = QtWidgets.QLineEdit(self.centralwidget)
+        self.lineEdit_28.setEnabled(False)
+        self.lineEdit_28.setGeometry(QtCore.QRect(30, 260, 241, 51))
+        self.lineEdit_28.setStyleSheet("font: 75 20pt \"Arial\";")
+        self.lineEdit_28.setClearButtonEnabled(False)
+        self.lineEdit_28.setObjectName("lineEdit_28")
+        self.pushButton_14 = QtWidgets.QPushButton(self.centralwidget)
+        self.pushButton_14.setGeometry(QtCore.QRect(280, 260, 111, 51))
+        font = QtGui.QFont()
+        font.setPointSize(-1)
+        font.setBold(True)
+        font.setWeight(75)
+        self.pushButton_14.setFont(font)
+        self.pushButton_14.setIconSize(QtCore.QSize(70, 56))
+        self.pushButton_14.setObjectName("pushButton_14")
+        self.pushButton_8 = QtWidgets.QPushButton(self.centralwidget)
+        self.pushButton_8.setGeometry(QtCore.QRect(280, 240, 52, 16))
+        self.pushButton_8.setMinimumSize(QtCore.QSize(52, 0))
+        self.pushButton_8.setToolTip("<html><head/><body><p align=\"right\">حجم الصورة المستحسن (390*190)</p></body></html>")
+        self.pushButton_8.setObjectName("pushButton_8")
+        self.pushButton_9 = QtWidgets.QPushButton(self.centralwidget)
+        self.pushButton_9.setGeometry(QtCore.QRect(750, 235, 52, 16))
+        self.pushButton_9.setMinimumSize(QtCore.QSize(52, 0))
+        self.pushButton_9.setToolTip("<html><head/><body><p align=\"right\">حجم الصورة المستحسن (500*500)</p></body></html>")
+        self.pushButton_9.setObjectName("pushButton_9")
         MainWindow.setCentralWidget(self.centralwidget)
         self.menubar = QtWidgets.QMenuBar(MainWindow)
         self.menubar.setGeometry(QtCore.QRect(0, 0, 924, 26))
@@ -786,7 +811,7 @@ class Ui_MainWindow(object):
         self.label_21.setText(_translate("MainWindow", "عدد الايصالات في الصفحة الواحده"))
         self.label_12.setText(_translate("MainWindow", "اكواد العمارات"))
         self.pushButton.setText(_translate("MainWindow", "اختر ملف العمارات"))
-        self.pushButton_13.setText(_translate("MainWindow", "اختر صورة الخلفية"))
+        self.pushButton_13.setText(_translate("MainWindow", "صورة الخلفية"))
         self.lineEdit_14.setPlaceholderText(_translate("MainWindow", "xxxx-xxxx-xxxx......."))
         self.label_2.setText(_translate("MainWindow", "شــهر"))
         self.label_9.setText(_translate("MainWindow", "اسم الشركة"))
@@ -804,4 +829,7 @@ class Ui_MainWindow(object):
         self.comboBox.setItemText(11, _translate("MainWindow", "12"))
         self.comboBox_5.setItemText(0, _translate("MainWindow", "ثلاثة ايصالات"))
         self.comboBox_5.setItemText(1, _translate("MainWindow", "اربعة ايصالات"))
+        self.pushButton_14.setText(_translate("MainWindow", "صورة التوقيع"))
+        self.pushButton_8.setText(_translate("MainWindow", "!"))
+        self.pushButton_9.setText(_translate("MainWindow", "!"))
 import imgs_rc

@@ -189,6 +189,7 @@ class create_month_Thread(QThread):
     year=""
     company_name=""
     logo=""
+    signature=""
     phone=""
     output_file=""
     num_per_page=""
@@ -209,7 +210,7 @@ class create_month_Thread(QThread):
                 return False
         return True
 
-    def createPDF_3(self,excel_file,output_file,company_name,phone,codes,logo,month1,year):
+    def createPDF_3(self,excel_file,output_file,company_name,phone,codes,logo,signature,month1,year):
         """
             create invoices pdf file from excel file using "reportlab" library (3 invoices per page)
             
@@ -219,6 +220,7 @@ class create_month_Thread(QThread):
                 company_name (str): company name
                 phone (str): company phone
                 logo (str): company logo
+                signature (str): manager signature
                 month1 (str): month
                 year (str): year
         
@@ -364,6 +366,9 @@ class create_month_Thread(QThread):
             ############################################
             text=arabic_text("توقيع المستلم -------------------------")
             c.drawRightString(19.8*cm,cur_r*cm-(count*invoice_width),text) 
+            if (signature!=""):
+                #draw signature
+                c.drawImage(signature, 12*cm, (cur_r-0.85)*cm-(count*invoice_width), width=5*cm, height=2*cm,preserveAspectRatio=True, mask='auto')
             cur_r-=1
             ############################################
             if (company_name==""):
@@ -398,7 +403,7 @@ class create_month_Thread(QThread):
         if dont_save==0:
             c.save()
     
-    def createPDF_4(self,input_file,output_file,company_name,phone,codes,logo,month1,year):
+    def createPDF_4(self,input_file,output_file,company_name,phone,codes,logo,signature,month1,year):
         """
             create invoices pdf file from excel file using "reportlab" library (4 invoices per page)
             
@@ -409,6 +414,7 @@ class create_month_Thread(QThread):
                 phone (str): company phone
                 codes (str) : if user want only create some process by serial code
                 logo (str): company logo
+                signature (str): manager signature
                 month1 (str): month
                 year (str): year
         
@@ -551,6 +557,9 @@ class create_month_Thread(QThread):
             ############################################
             text=arabic_text("توقيع المستلم -------------------------")
             c.drawRightString(19.8*cm,cur_r*cm-(count*invoice_width),text) 
+            if (signature!=""):
+                #draw signature
+                c.drawImage(signature, 12*cm, (cur_r-1)*cm-(count*invoice_width), width=5.3*cm, height=2*cm,preserveAspectRatio=True, mask='auto')
             cur_r-=0.7
             ############################################
             if (company_name==""):
@@ -591,9 +600,9 @@ class create_month_Thread(QThread):
         #run self.createPDF_3
         try:
             if(self.num_per_page==3):
-                self.createPDF_3(self.excel_file,self.output_file,self.company_name,self.phone,self.codes,self.logo,self.month,self.year)
+                self.createPDF_3(self.excel_file,self.output_file,self.company_name,self.phone,self.codes,self.logo,self.signature,self.month,self.year)
             elif(self.num_per_page==4):
-                self.createPDF_4(self.excel_file,self.output_file,self.company_name,self.phone,self.codes,self.logo,self.month,self.year)
+                self.createPDF_4(self.excel_file,self.output_file,self.company_name,self.phone,self.codes,self.logo,self.signature,self.month,self.year)
             return
         except Exception as e:
             self.error.emit(str(e)) 
@@ -635,7 +644,8 @@ class Main(QMainWindow, ui):
             connect buttons in GUI with methods
         """
         self.pushButton.clicked.connect(self.choose_file_excel)
-        self.pushButton_13.clicked.connect(self.choose_file_image)
+        self.pushButton_13.clicked.connect(self.choose_file_logo)
+        self.pushButton_14.clicked.connect(self.choose_file_signature)
         self.pushButton_4.clicked.connect(self.choose_save)
         self.pushButton_2.clicked.connect(self.create_month_receipts)
     def clear_create_month_receipts(self):
@@ -646,6 +656,7 @@ class Main(QMainWindow, ui):
         self.lineEdit_11.setText("")
         self.lineEdit_13.setText("")
         self.lineEdit_27.setText("")
+        self.lineEdit_28.setText("")
         self.comboBox.setCurrentIndex(int(self.current_month)-1)
         self.comboBox_5.setCurrentIndex(0)
         self.lineEdit_4.setText(self.current_year)
@@ -660,14 +671,23 @@ class Main(QMainWindow, ui):
         if file==None:
             QMessageBox.warning(self,"Error","يجب إختيار ملف")
             return   
-    def choose_file_image(self):
+    def choose_file_logo(self):
         """open a file dialog to choose the image file"""
         file, _ = QtWidgets.QFileDialog.getOpenFileName(None,directory=get_last_dir(),filter="Image (*.png *.jpg)")
         if file:
             self.lineEdit_27.setText(file)
         if file==None:
             QMessageBox.warning(self,"Error","يجب إختيار ملف")
-            return             
+            return   
+    def choose_file_signature(self):
+        """open a file dialog to choose the image file"""
+        file, _ = QtWidgets.QFileDialog.getOpenFileName(None,directory=get_last_dir(),filter="Image (*.png *.jpg)")
+        if file:
+            self.lineEdit_28.setText(file)
+        if file==None:
+            QMessageBox.warning(self,"Error","يجب إختيار ملف")
+            return  
+                  
     def choose_save(self):
         """open a file dialog to choose the save directory"""
         if self.lineEdit.text()=='': #if no file selected
@@ -713,10 +733,16 @@ class Main(QMainWindow, ui):
             QMessageBox. warning(self, "ERROR", "يجب اختيار مكان حفظ الملف!")
             return
         logo=self.lineEdit_27.text()
+        signature=self.lineEdit_28.text()
         if (logo!=''):
             if not os.path.exists(logo):
-                QMessageBox. warning(self, "ERROR", "الصورة غير موجودة!")
+                QMessageBox. warning(self, "ERROR", "صورة الشعار غير موجودة!")
                 return
+        if (signature!=''):
+            if not os.path.exists(signature):
+                QMessageBox. warning(self, "ERROR", "صورة التوقيع غير موجودة!")
+                return
+        
         codes=self.lineEdit_14.text()
         input_file=self.lineEdit.text()
         if not os.path.exists(input_file):
@@ -735,6 +761,7 @@ class Main(QMainWindow, ui):
             self.calc.company_name=company_name
             self.calc.phone=phone
             self.calc.logo=logo
+            self.calc.signature=signature
             self.calc.output_file=output_file
             self.calc.codes=codes
             self.calc.value_changed.connect(self.update_progress)
