@@ -1,9 +1,7 @@
-
 import sys
 from PyQt5.QtGui import QIcon
 from PyQt5 import QtWidgets
 from PyQt5.QtWidgets import QMainWindow,QMessageBox,QApplication
-
 from UI import Ui_MainWindow as ui
 from assistant import check_path_exists,get_cur_month_year,update_last_dir,get_last_dir
 from createInvoices import Create_Invoices
@@ -18,9 +16,6 @@ from createInvoices import Create_Invoices
     https://www.linkedin.com/in/abdulrahman-kabil-5729621a2/
     
 """
-
-
-
 
 class Main(QMainWindow, ui):
     """a class for the main window"""
@@ -58,7 +53,7 @@ class Main(QMainWindow, ui):
             filename=file.split("/")[-1]
             update_last_dir(file.replace(filename,""))
         if file==None:
-            QtWidgets.QMessageBox.warning(self,"Error","يجب إختيار ملف")
+            self.show_error( "يجب إختيار ملف")
             return   
         
     def choose_file_logo(self):
@@ -67,7 +62,7 @@ class Main(QMainWindow, ui):
         if file:
             self.lineEdit_27.setText(file)
         if file==None:
-            QtWidgets.QMessageBox.warning(self,"Error","يجب إختيار ملف")
+            self.show_error("يجب إختيار ملف")
             return   
         
     def choose_file_signature(self):
@@ -76,16 +71,16 @@ class Main(QMainWindow, ui):
         if file:
             self.lineEdit_28.setText(file)
         if file==None:
-            QtWidgets.QMessageBox.warning(self,"Error","يجب إختيار ملف")
+            self.show_error( "يجب إختيار ملف")
             return  
                     
     def choose_save(self):
         """open a file dialog to choose the save directory"""
         if self.lineEdit.text()=='': #if no file selected
-            QtWidgets.QMessageBox.warning(self,"Error","يجب إختيار ملف العمارات اولاً")
+            self.show_error( "يجب إختيار ملف العمارات اولاً")
             return
         if self.lineEdit_4.text()=='': #if no year
-            QtWidgets.QMessageBox.warning(self,"Error","يجب إدخال السنة")
+            self.show_error( "يجب إدخال السنة")
             return
         options = QtWidgets.QFileDialog.Options()
         options |= QtWidgets.QFileDialog.DontUseNativeDialog
@@ -118,10 +113,10 @@ class Main(QMainWindow, ui):
         else:
             invoices_in_page=4
         if (self.lineEdit.text()==''):
-            QMessageBox. warning(self, "ERROR", "يجب اختيار ملف العمارات اولاً!")
+            self.show_error("يجب اختيار ملف العمارات اولاً!")
             return
         if (self.lineEdit_4.text()==''):
-            QMessageBox. warning(self, "ERROR", "يجب ادخال السنة!")
+            self.show_error("يجب ادخال السنة!")
             return
         if (self.lineEdit_13.text()==''):
             #create qustion Message no phone "لا " or "اضافة هاتف"
@@ -136,23 +131,23 @@ class Main(QMainWindow, ui):
             if replay==1:
                 return
         if (self.lineEdit_2.text()==''):
-            QMessageBox. warning(self, "ERROR", "يجب اختيار مكان حفظ الملف!")
+            self.show_error( "يجب اختيار مكان حفظ الملف!")
             return
         logo=self.lineEdit_27.text()
         signature=self.lineEdit_28.text()
         if (logo!=''):
             if not check_path_exists(logo):
-                QMessageBox. warning(self, "ERROR", "صورة الشعار غير موجودة!")
+                self.show_error( "صورة الشعار غير موجودة!")
                 return
         if (signature!=''):
             if not check_path_exists(signature):
-                QMessageBox. warning(self, "ERROR", "صورة التوقيع غير موجودة!")
+                self.show_error( "صورة التوقيع غير موجودة!")
                 return
         
         codes=self.lineEdit_14.text()
         input_file=self.lineEdit.text()
         if not check_path_exists(input_file):
-            QMessageBox. warning(self, "ERROR", "ملف العمارات غير موجود!")
+            self.show_error( "ملف العمارات غير موجود!")
             return
         company_name=self.lineEdit_11.text()
         year=self.lineEdit_4.text()
@@ -160,20 +155,10 @@ class Main(QMainWindow, ui):
         phone=self.lineEdit_13.text()
         output_file=self.lineEdit_2.text()+".pdf"
         try:
-            self.Creator=Create_Invoices()
-            self.Creator.excel_file=input_file
-            self.Creator.year=year
-            self.Creator.month=month
-            self.Creator.company_name=company_name
-            self.Creator.phone=phone
-            self.Creator.logo=logo
-            self.Creator.signature=signature
-            self.Creator.output_file=output_file
-            self.Creator.codes=codes
+            self.Creator=Create_Invoices(invoices_in_page,input_file,output_file,company_name,phone,codes,logo,signature,month,year)
             self.Creator.value_changed.connect(self.update_progress)
             self.Creator.error.connect(self.show_error)
             self.Creator.info.connect(self.show_info)
-            self.Creator.invoices_in_page=invoices_in_page
             self.Creator.start()
             self.pushButton_2.setEnabled(False)
             
@@ -182,28 +167,29 @@ class Main(QMainWindow, ui):
             self.show_error(e)
             self.update_progress(0)
             return
+    
     def show_error(self,msg):
         QMessageBox.warning(self, "ERROR","لقد وجدنا هذة الاخطاء:\n"+str(msg))
-        self.clear_create_month_receipts()
         self.pushButton_2.setEnabled(True)
         self.update_progress(0)
         return
     def show_info(self,msg):
         self.pushButton_2.setEnabled(True)
         QMessageBox.information(self, "info","نود اعلامك بانة:\n"+str(msg))   
+    
     def update_progress(self,value):
         try:
             self.progressBar.setValue(int(value))
             self.progressBar.setFormat(("%.02f %%" % value))
             if value==100:
-                QMessageBox.information(self, "Success", "تم إنشاء الملف بنجاح!")
+                self.show_info("تم إنشاء الملف بنجاح!")
                 self.progressBar.setValue(0)
                 self.lineEdit_2.setText("")
                 self.pushButton_2.setEnabled(True)
                 return
         except Exception as e:
             self.pushButton_2.setEnabled(True)
-            QMessageBox.warning(self, "ERROR", "لقد وجدنا هذة الاخطاء:\n"+str(e))
+            self.show_error(e)
             self.update_progress(0)
             return
             
