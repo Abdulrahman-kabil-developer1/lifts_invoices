@@ -7,8 +7,20 @@
     <x>0</x>
     <y>0</y>
     <width>924</width>
-    <height>813</height>
+    <height>673</height>
    </rect>
+  </property>
+  <property name="minimumSize">
+   <size>
+    <width>0</width>
+    <height>0</height>
+   </size>
+  </property>
+  <property name="maximumSize">
+   <size>
+    <width>924</width>
+    <height>673</height>
+   </size>
   </property>
   <property name="font">
    <font>
@@ -25,494 +37,572 @@
     <normaloff>:/img/receipt.png</normaloff>:/img/receipt.png</iconset>
   </property>
   <property name="styleSheet">
-   <string notr="true">/*Copyright (c) DevSec Studio. All rights reserved.
-
-MIT License
-
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the &quot;Software&quot;), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in all
-copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED *AS IS*, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+   <string notr="true">/*
+Aqua Style Sheet for QT Applications
+Author: Jaime A. Quiroga P.
+Company: GTRONICK
+Last updated: 22/01/2019, 07:55.
+Available at: https://github.com/GTRONICK/QSS/blob/master/Aqua.qss
 */
-
-/*-----QWidget-----*/
-QWidget
-{
-	background-color: #fff;
-	color: red;
-
+QComboBox:focus{
+background-color:rgb(0, 0, 255)
 }
-
-
-/*-----QLabel-----*/
-QLabel
-{
-	background-color: transparent;
-	color: #454544;
-	font-weight: bold;
-	font-size: 13px;
-
+QMainWindow {
+	background-color:rgb(255, 251, 255);
 }
-
-
-/*-----QPushButton-----*/
-QPushButton
-{
-	background-color: #5c55e9;
-	color: #fff;
-	font-size: 13px;
-	font-weight: bold;
-	border-top-right-radius: 15px;
-	border-top-left-radius: 0px;
-	border-bottom-right-radius: 0px;
-	border-bottom-left-radius: 15px;
-	padding: 10px;
-
+QTextEdit {
+	border-width: 1px;
+	border-style: solid;
+	border-color: qlineargradient(spread:pad, x1:0.5, y1:1, x2:0.5, y2:0, stop:0 rgba(0, 113, 255, 255), stop:1 rgba(91, 171, 252, 255));
 }
-
-
-QPushButton::disabled
-{
-	background-color: #5c5c5c;
-
+QPlainTextEdit {
+	border-width: 1px;
+	border-style: solid;
+	border-color: qlineargradient(spread:pad, x1:0.5, y1:1, x2:0.5, y2:0, stop:0 rgba(0, 113, 255, 255), stop:1 rgba(91, 171, 252, 255));
 }
-
-
-QPushButton::hover
-{
-	background-color: #5564f2;
-
-}
-
-
-QPushButton::pressed
-{
-	background-color: #3d4ef2;
-
-}
-
-
-/*-----QCheckBox-----*/
-QCheckBox
-{
-	background-color: transparent;
-	color: #5c55e9;
-	font-size: 10px;
-	font-weight: bold;
-	border: none;
+QToolButton {
+	border-style: solid;
+	border-top-color: qlineargradient(spread:pad, x1:0.5, y1:1, x2:0.5, y2:0, stop:0 rgb(215, 215, 215), stop:1 rgb(222, 222, 222));
+	border-right-color: qlineargradient(spread:pad, x1:0, y1:0.5, x2:1, y2:0.5, stop:0 rgb(217, 217, 217), stop:1 rgb(227, 227, 227));
+	border-left-color: qlineargradient(spread:pad, x1:0, y1:0.5, x2:1, y2:0.5, stop:0 rgb(227, 227, 227), stop:1 rgb(217, 217, 217));
+	border-bottom-color: qlineargradient(spread:pad, x1:0.5, y1:1, x2:0.5, y2:0, stop:0 rgb(215, 215, 215), stop:1 rgb(222, 222, 222));
+	border-width: 1px;
 	border-radius: 5px;
-
+	color: rgb(0,0,0);
+	padding: 2px;
+	background-color: rgb(255,255,255);
 }
-
-
-/*-----QCheckBox-----*/
-QCheckBox::indicator
-{
-    background-color: #323232;
-    border: 1px solid darkgray;
-    width: 12px;
-    height: 12px;
-
+QToolButton:hover{
+	border-style: solid;
+	border-top-color: qlineargradient(spread:pad, x1:0.5, y1:1, x2:0.5, y2:0, stop:0 rgb(195, 195, 195), stop:1 rgb(222, 222, 222));
+	border-right-color: qlineargradient(spread:pad, x1:0, y1:0.5, x2:1, y2:0.5, stop:0 rgb(197, 197, 197), stop:1 rgb(227, 227, 227));
+	border-left-color: qlineargradient(spread:pad, x1:0, y1:0.5, x2:1, y2:0.5, stop:0 rgb(227, 227, 227), stop:1 rgb(197, 197, 197));
+	border-bottom-color: qlineargradient(spread:pad, x1:0.5, y1:1, x2:0.5, y2:0, stop:0 rgb(195, 195, 195), stop:1 rgb(222, 222, 222));
+	border-width: 1px;
+	border-radius: 5px;
+	color: rgb(0,0,0);
+	padding: 2px;
+	background-color: rgb(255,255,255);
 }
-
-
-QCheckBox::indicator:checked
-{
-    image:url(&quot;./ressources/check.png&quot;);
-	background-color: #5c55e9;
-    border: 1px solid #5c55e9;
-
+QToolButton:pressed{
+	border-style: solid;
+	border-top-color: qlineargradient(spread:pad, x1:0.5, y1:1, x2:0.5, y2:0, stop:0 rgb(215, 215, 215), stop:1 rgb(222, 222, 222));
+	border-right-color: qlineargradient(spread:pad, x1:0, y1:0.5, x2:1, y2:0.5, stop:0 rgb(217, 217, 217), stop:1 rgb(227, 227, 227));
+	border-left-color: qlineargradient(spread:pad, x1:0, y1:0.5, x2:1, y2:0.5, stop:0 rgb(227, 227, 227), stop:1 rgb(217, 217, 217));
+	border-bottom-color: qlineargradient(spread:pad, x1:0.5, y1:1, x2:0.5, y2:0, stop:0 rgb(215, 215, 215), stop:1 rgb(222, 222, 222));
+	border-width: 1px;
+	border-radius: 5px;
+	color: rgb(0,0,0);
+	padding: 2px;
+	background-color: rgb(142,142,142);
 }
-
-
-QCheckBox::indicator:unchecked:hover
-{
-    border: 1px solid #5c55e9;
-
+QPushButton:focus{
+background-color:rgb(165, 16, 39)
 }
-
-
-QCheckBox::disabled
-{
-	color: #656565;
-
-}
-
-
-QCheckBox::indicator:disabled
-{
-	background-color: #656565;
-	color: #656565;
-    border: 1px solid #656565;
-
-}
-
-
-/*-----QLineEdit-----*/
-QLineEdit
-{
-	background-color: #c2c7d5;
-	color: #2a547f;
-	border: none;
-	padding: 5px;
-
-}
-
-
-/*-----QListView-----*/
-QListView
-{
-	background-color: #5c55e9;
-	color: #fff;
-	font-size: 14px;
-	font-weight: bold;
-	show-decoration-selected: 0;
-	border-radius: 4px;
-	padding-left: -15px;
-	padding-right: -15px;
-	padding-top: 5px;
-
-} 
-
-
-QListView:disabled 
-{
-	background-color: #5c5c5c;
-
-}
-
-
-QListView::item
-{
-	background-color: #454e5e;
-	border: none;
-	padding: 10px;
-	border-radius: 0px;
-	padding-left : 10px;
-	height: 32px;
-
-}
-
-
-QListView::item:selected
-{
-	color: #000;
-	background-color: #fff;
-
-}
-
-
-QListView::item:!selected
-{
-	color:white;
-	background-color: transparent;
-	border: none;
-	padding-left : 10px;
-
-}
-
-
-QListView::item:!selected:hover
-{
-	color: #fff;
-	background-color: #5564f2;
-	border: none;
-	padding-left : 10px;
-
-}
-
-
-/*-----QTreeView-----*/
-QTreeView 
-{
-	background-color: #fff;
-	show-decoration-selected: 0;
-	color: #454544;
-
-}
-
-
-QTreeView:disabled
-{
-	background-color: #242526;
-	show-decoration-selected: 0;
-
-}
-
-
-QTreeView::item 
-{
-	border-top-color: transparent;
-	border-bottom-color: transparent;
-
-}
-
-
-QTreeView::item:hover 
-{
-	background-color: #bcbdbb;
-	color: #000;
-
-}
-
-
-QTreeView::item:selected 
-{
-	background-color: #5c55e9;
-	color: #fff;
-
-}
-
-
-QTreeView::item:selected:active
-{
-	background-color: #5c55e9;
-	color: #fff;
-
-}
-
-
-QTreeView::item:selected:disabled
-{
-	background-color: #525251;
-	color: #656565;
-
-}
-
-
-QTreeView::branch:has-children:!has-siblings:closed,
-QTreeView::branch:closed:has-children:has-siblings 
-{
-	image: url(://tree-closed.png);
-
-}
-
-QTreeView::branch:open:has-children:!has-siblings,
-QTreeView::branch:open:has-children:has-siblings  
-{
-	image: url(://tree-open.png);
-
-}
-
-
-/*-----QTableView &amp; QTableWidget-----*/
-QTableView
-{
-    background-color: #fff;
-	border: 1px solid gray;
-    color: #454544;
-    gridline-color: gray;
-    outline : 0;
-
-}
-
-
-QTableView::disabled
-{
-    background-color: #242526;
-    border: 1px solid #32414B;
-    color: #656565;
-    gridline-color: #656565;
-    outline : 0;
-
-}
-
-
-QTableView::item:hover 
-{
-    background-color: #bcbdbb;
-    color: #000;
-
-}
-
-
-QTableView::item:selected 
-{
-	background-color: #5c55e9;
-    color: #fff;
-
-}
-
-
-QTableView::item:selected:disabled
-{
-    background-color: #1a1b1c;
-    border: 2px solid #525251;
-    color: #656565;
-
-}
-
-
-QTableCornerButton::section
-{
-	background-color: #ced5e3;
-	border: none;
-    color: #fff;
-
-}
-
-
-QHeaderView::section
-{
-	color: #2a547f;
-	border: 0px;
-	background-color: #ced5e3;
-	padding: 5px;
-
-}
-
-
-QHeaderView::section:disabled
-{
-    background-color: #525251;
-    color: #656565;
-
-}
-
-
-QHeaderView::section:checked
-{
-    color: #fff;
-    background-color: #5c55e9;
-
-}
-
-
-QHeaderView::section:checked:disabled
-{
-    color: #656565;
-    background-color: #525251;
-
-}
-
-
-QHeaderView::section::vertical::first,
-QHeaderView::section::vertical::only-one
-{
-    border-top: 1px solid #353635;
-
-}
-
-
-QHeaderView::section::vertical
-{
-    border-top: 1px solid #353635;
-
-}
-
-
-QHeaderView::section::horizontal::first,
-QHeaderView::section::horizontal::only-one
-{
-    border-left: 1px solid #353635;
-
-}
-
-
-QHeaderView::section::horizontal
-{
-    border-left: 1px solid #353635;
-
-}
-
-
-/*-----QScrollBar-----*/
-QScrollBar:horizontal 
-{
-    background-color: transparent;
-    height: 8px;
-    margin: 0px;
-    padding: 0px;
-
-}
-
-
-QScrollBar::handle:horizontal 
-{
-    border: none;
-	min-width: 100px;
-    background-color: #7e92b7;
-
-}
-
-
-QScrollBar::add-line:horizontal, 
-QScrollBar::sub-line:horizontal,
-QScrollBar::add-page:horizontal, 
-QScrollBar::sub-page:horizontal 
-{
-    width: 0px;
-    background-color: #d8dce6;
-
-}
-
-
-QScrollBar:vertical 
-{
-    background-color: transparent;
-    width: 8px;
-    margin: 0;
-
-}
-
-
-QScrollBar::handle:vertical 
-{
-    border: none;
-	min-height: 100px;
-    background-color: #7e92b7;
-
-}
-
-
-QScrollBar::add-line:vertical, 
-QScrollBar::sub-line:vertical,
-QScrollBar::add-page:vertical, 
-QScrollBar::sub-page:vertical 
-{
-    height: 0px;
-    background-color: #d8dce6;
-
-}
-QPushButton
-{
-    
+QPushButton{
+	border-style: solid;
+	border-top-color: qlineargradient(spread:pad, x1:0.5, y1:1, x2:0.5, y2:0, stop:0 rgb(215, 215, 215), stop:1 rgb(222, 222, 222));
+	border-right-color: qlineargradient(spread:pad, x1:0, y1:0.5, x2:1, y2:0.5, stop:0 rgb(217, 217, 217), stop:1 rgb(227, 227, 227));
+	border-left-color: qlineargradient(spread:pad, x1:0, y1:0.5, x2:1, y2:0.5, stop:0 rgb(227, 227, 227), stop:1 rgb(217, 217, 217));
+	border-bottom-color: qlineargradient(spread:pad, x1:0.5, y1:1, x2:0.5, y2:0, stop:0 rgb(215, 215, 215), stop:1 rgb(222, 222, 222));
+	border-width: 1px;
+	border-radius: 10px;
 	color: rgb(255, 255, 255);
-    background-color: QLinearGradient( x1: 0, y1: 0, x2: 0, y2: 1, stop: 0 #565656, stop: 0.1 #525252, stop: 0.5 #4e4e4e, stop: 0.9 #4a4a4a, stop: 1 #464646);
-    border-width: 1px;
-    border-color: #1e1e1e;
-    border-style: solid;
-    border-radius: 6;
-    padding: 3px;
-    font-size: 12px;
-    padding-left: 5px;
-    padding-right: 5px;
-    min-width: 40px;
-background-color: rgb(255, 255, 255);
-color: rgb(0, 0, 0);
+	padding: 2px;
+	background-color:rgb(255, 0, 0) ;
+}
+QPushButton::default{
+	border-style: solid;
+	border-top-color: qlineargradient(spread:pad, x1:0.5, y1:1, x2:0.5, y2:0, stop:0 rgb(215, 215, 215), stop:1 rgb(222, 222, 222));
+	border-right-color: qlineargradient(spread:pad, x1:0, y1:0.5, x2:1, y2:0.5, stop:0 rgb(217, 217, 217), stop:1 rgb(227, 227, 227));
+	border-left-color: qlineargradient(spread:pad, x1:0, y1:0.5, x2:1, y2:0.5, stop:0 rgb(227, 227, 227), stop:1 rgb(217, 217, 217));
+	border-bottom-color: qlineargradient(spread:pad, x1:0.5, y1:1, x2:0.5, y2:0, stop:0 rgb(215, 215, 215), stop:1 rgb(222, 222, 222));
+	border-width: 1px;
+	border-radius: 5px;
+	color: rgb(0,0,0);
+	padding: 2px;
+	background-color: rgb(111, 98, 255);
+}
+QPushButton:hover{
+	border-style: solid;
+	border-top-color: qlineargradient(spread:pad, x1:0.5, y1:1, x2:0.5, y2:0, stop:0 rgb(195, 195, 195), stop:1 rgb(222, 222, 222));
+	border-right-color: qlineargradient(spread:pad, x1:0, y1:0.5, x2:1, y2:0.5, stop:0 rgb(197, 197, 197), stop:1 rgb(227, 227, 227));
+	border-left-color: qlineargradient(spread:pad, x1:0, y1:0.5, x2:1, y2:0.5, stop:0 rgb(227, 227, 227), stop:1 rgb(197, 197, 197));
+	border-bottom-color: qlineargradient(spread:pad, x1:0.5, y1:1, x2:0.5, y2:0, stop:0 rgb(195, 195, 195), stop:1 rgb(222, 222, 222));
+	border-width: 1px;
+	border-radius: 5px;
+	color: rgb(255, 255, 255);
+	padding: 2px;
+	background-color: rgb(170, 0, 0);
+}
+QPushButton:pressed{
+	border-style: solid;
+	border-top-color: qlineargradient(spread:pad, x1:0.5, y1:1, x2:0.5, y2:0, stop:0 rgb(215, 215, 215), stop:1 rgb(222, 222, 222));
+	border-right-color: qlineargradient(spread:pad, x1:0, y1:0.5, x2:1, y2:0.5, stop:0 rgb(217, 217, 217), stop:1 rgb(227, 227, 227));
+	border-left-color: qlineargradient(spread:pad, x1:0, y1:0.5, x2:1, y2:0.5, stop:0 rgb(227, 227, 227), stop:1 rgb(217, 217, 217));
+	border-bottom-color: qlineargradient(spread:pad, x1:0.5, y1:1, x2:0.5, y2:0, stop:0 rgb(215, 215, 215), stop:1 rgb(222, 222, 222));
+	border-width: 1px;
+	border-radius: 5px;
+	color: rgb(0,0,0);
+	padding: 2px;
+	background-color: rgb(142,142,142);
+}
+QPushButton:disabled{
+	border-style: solid;
+	border-top-color: qlineargradient(spread:pad, x1:0.5, y1:1, x2:0.5, y2:0, stop:0 rgb(215, 215, 215), stop:1 rgb(222, 222, 222));
+	border-right-color: qlineargradient(spread:pad, x1:0, y1:0.5, x2:1, y2:0.5, stop:0 rgb(217, 217, 217), stop:1 rgb(227, 227, 227));
+	border-left-color: qlineargradient(spread:pad, x1:0, y1:0.5, x2:1, y2:0.5, stop:0 rgb(227, 227, 227), stop:1 rgb(217, 217, 217));
+	border-bottom-color: qlineargradient(spread:pad, x1:0.5, y1:1, x2:0.5, y2:0, stop:0 rgb(215, 215, 215), stop:1 rgb(222, 222, 222));
+	border-width: 1px;
+	border-radius: 5px;
+	color: #808086;
+	padding: 2px;
+	background-color: rgb(142,142,142);
+}
+QLineEdit {
+	border-width: 1px; border-radius: 4px;
+	border-style: solid;
+	border-color: qlineargradient(spread:pad, x1:0.5, y1:1, x2:0.5, y2:0, stop:0 rgba(0, 113, 255, 255), stop:1 rgba(91, 171, 252, 255));
+	color: rgb(0, 0, 0);
+}
+QLabel {
+	color: #000000;
+}
+QLCDNumber {
+	color: rgb(0, 113, 255, 255);
+}
+QProgressBar {
+	text-align: center;
+	color: rgb(240, 240, 240);
+	border-width: 1px; 
+	border-radius: 10px;
+	border-color: rgb(230, 230, 230);
+	border-style: solid;
+	background-color:rgb(207,207,207);
+}
+QProgressBar::chunk {
+	background-color: qlineargradient(spread:pad, x1:0.5, y1:1, x2:0.5, y2:0, stop:0 rgba(49, 147, 250, 255), stop:1 rgba(34, 142, 255, 255));
+	border-radius: 10px;
+}
+QMenuBar {
+	background-color: qlineargradient(spread:pad, x1:0.5, y1:1, x2:0.5, y2:0, stop:0 rgba(207, 209, 207, 255), stop:1 rgba(230, 229, 230, 255));
+}
+QMenuBar::item {
+	color: #000000;
+  	spacing: 3px;
+  	padding: 1px 4px;
+	background-color: qlineargradient(spread:pad, x1:0.5, y1:1, x2:0.5, y2:0, stop:0 rgba(207, 209, 207, 255), stop:1 rgba(230, 229, 230, 255));
 }
 
-QPushButton:pressed
-{
-    background-color: QLinearGradient( x1: 0, y1: 0, x2: 0, y2: 1, stop: 0 #2d2d2d, stop: 0.1 #2b2b2b, stop: 0.5 #292929, stop: 0.9 #282828, stop: 1 #252525);
+QMenuBar::item:selected {
+  	background-color: qlineargradient(spread:pad, x1:0.5, y1:1, x2:0.5, y2:0, stop:0 rgba(0, 113, 255, 255), stop:1 rgba(91, 171, 252, 255));
+	color: #FFFFFF;
 }
-QPushButton:hover
-{
-    border: 2px solid QLinearGradient( x1: 0, y1: 0, x2: 0, y2: 1, stop: 0 #ffa02f, stop: 1 #d7801a);
+QMenu::item:selected {
+	border-style: solid;
+	border-top-color: transparent;
+	border-right-color: transparent;
+	border-left-color: qlineargradient(spread:pad, x1:0.5, y1:1, x2:0.5, y2:0, stop:0 rgba(0, 113, 255, 255), stop:1 rgba(91, 171, 252, 255));
+	border-bottom-color: transparent;
+	border-left-width: 2px;
+	color: #000000;
+	padding-left:15px;
+	padding-top:4px;
+	padding-bottom:4px;
+	padding-right:7px;
+}
+QMenu::item {
+	border-style: solid;
+	border-top-color: transparent;
+	border-right-color: transparent;
+	border-left-color: transparent;
+	border-bottom-color: transparent;
+	border-bottom-width: 1px;
+	color: #000000;
+	padding-left:17px;
+	padding-top:4px;
+	padding-bottom:4px;
+	padding-right:7px;
+}
+QTabWidget {
+	color:rgb(0,0,0);
+	background-color:#000000;
+}
+QTabWidget::pane {
+		border-color: rgb(223,223,223);
+		background-color:rgb(226,226,226);
+		border-style: solid;
+		border-width: 2px;
+    	border-radius: 6px;
+}
+QTabBar::tab:first {
+	border-style: solid;
+	border-left-width:1px;
+	border-right-width:0px;
+	border-top-width:1px;
+	border-bottom-width:1px;
+	border-top-color: rgb(209,209,209);
+	border-left-color: qlineargradient(spread:pad, x1:0.5, y1:1, x2:0.5, y2:0, stop:0 rgba(209, 209, 209, 209), stop:1 rgba(229, 229, 229, 229));
+	border-bottom-color: rgb(229,229,229);
+	border-top-left-radius: 4px;
+	border-bottom-left-radius: 4px;
+	color: #000000;
+	padding: 3px;
+	margin-left:0px;
+	background-color: qlineargradient(spread:pad, x1:0.5, y1:1, x2:0.5, y2:0, stop:0 rgba(247, 247, 247, 255), stop:1 rgba(255, 255, 255, 255));
+}
+QTabBar::tab:last {
+	border-style: solid;
+	border-width:1px;
+	border-top-color: rgb(209,209,209);
+	border-left-color: qlineargradient(spread:pad, x1:0.5, y1:1, x2:0.5, y2:0, stop:0 rgba(209, 209, 209, 209), stop:1 rgba(229, 229, 229, 229));
+	border-right-color: qlineargradient(spread:pad, x1:0.5, y1:1, x2:0.5, y2:0, stop:0 rgba(209, 209, 209, 209), stop:1 rgba(229, 229, 229, 229));
+	border-bottom-color: rgb(229,229,229);
+	border-top-right-radius: 4px;
+	border-bottom-right-radius: 4px;
+	color: #000000;
+	padding: 3px;
+	margin-left:0px;
+	background-color: qlineargradient(spread:pad, x1:0.5, y1:1, x2:0.5, y2:0, stop:0 rgba(247, 247, 247, 255), stop:1 rgba(255, 255, 255, 255));
+}
+QTabBar::tab {
+	border-style: solid;
+	border-top-width:1px;
+	border-bottom-width:1px;
+	border-left-width:1px;
+	border-top-color: rgb(209,209,209);
+	border-left-color: qlineargradient(spread:pad, x1:0.5, y1:1, x2:0.5, y2:0, stop:0 rgba(209, 209, 209, 209), stop:1 rgba(229, 229, 229, 229));
+	border-bottom-color: rgb(229,229,229);
+	color: #000000;
+	padding: 3px;
+	margin-left:0px;
+	background-color: qlineargradient(spread:pad, x1:0.5, y1:1, x2:0.5, y2:0, stop:0 rgba(247, 247, 247, 255), stop:1 rgba(255, 255, 255, 255));
+}
+QTabBar::tab:selected, QTabBar::tab:last:selected, QTabBar::tab:hover {
+  	border-style: solid;
+  	border-left-width:1px;
+	border-right-color: transparent;
+	border-top-color: rgb(209,209,209);
+	border-left-color: qlineargradient(spread:pad, x1:0.5, y1:1, x2:0.5, y2:0, stop:0 rgba(209, 209, 209, 209), stop:1 rgba(229, 229, 229, 229));
+	border-bottom-color: rgb(229,229,229);
+	color: #FFFFFF;
+	padding: 3px;
+	margin-left:0px;
+	background-color: qlineargradient(spread:pad, x1:0.5, y1:1, x2:0.5, y2:0, stop:0 rgba(0, 113, 255, 255), stop:1 rgba(91, 171, 252, 255));
 }
 
+QTabBar::tab:selected, QTabBar::tab:first:selected, QTabBar::tab:hover {
+  	border-style: solid;
+  	border-left-width:1px;
+  	border-bottom-width:1px;
+  	border-top-width:1px;
+	border-right-color: transparent;
+	border-top-color: rgb(209,209,209);
+	border-left-color: qlineargradient(spread:pad, x1:0.5, y1:1, x2:0.5, y2:0, stop:0 rgba(209, 209, 209, 209), stop:1 rgba(229, 229, 229, 229));
+	border-bottom-color: rgb(229,229,229);
+	color: #FFFFFF;
+	padding: 3px;
+	margin-left:0px;
+	background-color: qlineargradient(spread:pad, x1:0.5, y1:1, x2:0.5, y2:0, stop:0 rgba(0, 113, 255, 255), stop:1 rgba(91, 171, 252, 255));
+}
+
+QCheckBox {
+	color: #000000;
+	padding: 2px;
+}
+QCheckBox:disabled {
+	color: #808086;
+	padding: 2px;
+}
+
+QCheckBox:hover {
+	border-radius:4px;
+	border-style:solid;
+	padding-left: 1px;
+	padding-right: 1px;
+	padding-bottom: 1px;
+	padding-top: 1px;
+	border-width:1px;
+	border-color: transparent;
+}
+QCheckBox::indicator:checked {
+
+	height: 10px;
+	width: 10px;
+	border-style:solid;
+	border-width: 1px;
+	border-color: qlineargradient(spread:pad, x1:0.5, y1:1, x2:0.5, y2:0, stop:0 rgba(0, 113, 255, 255), stop:1 rgba(91, 171, 252, 255));
+	color: #000000;
+	background-color: qlineargradient(spread:pad, x1:0.5, y1:1, x2:0.5, y2:0, stop:0 rgba(0, 113, 255, 255), stop:1 rgba(91, 171, 252, 255));
+}
+QCheckBox::indicator:unchecked {
+
+	height: 10px;
+	width: 10px;
+	border-style:solid;
+	border-width: 1px;
+	border-color: qlineargradient(spread:pad, x1:0.5, y1:1, x2:0.5, y2:0, stop:0 rgba(0, 113, 255, 255), stop:1 rgba(91, 171, 252, 255));
+	color: #000000;
+}
+QRadioButton {
+	color: 000000;
+	padding: 1px;
+}
+QRadioButton::indicator:checked {
+	height: 10px;
+	width: 10px;
+	border-style:solid;
+	border-radius:5px;
+	border-width: 1px;
+	border-color: qlineargradient(spread:pad, x1:0.5, y1:1, x2:0.5, y2:0, stop:0 rgba(0, 113, 255, 255), stop:1 rgba(91, 171, 252, 255));
+	color: #a9b7c6;
+	background-color: qlineargradient(spread:pad, x1:0.5, y1:1, x2:0.5, y2:0, stop:0 rgba(0, 113, 255, 255), stop:1 rgba(91, 171, 252, 255));
+}
+QRadioButton::indicator:!checked {
+	height: 10px;
+	width: 10px;
+	border-style:solid;
+	border-radius:5px;
+	border-width: 1px;
+	border-color: qlineargradient(spread:pad, x1:0.5, y1:1, x2:0.5, y2:0, stop:0 rgba(0, 113, 255, 255), stop:1 rgba(91, 171, 252, 255));
+	color: #a9b7c6;
+	background-color: transparent;
+}
+QStatusBar {
+	color:#027f7f;
+}
+QSpinBox {
+	border-style: solid;
+	border-width: 1px;
+	border-color: qlineargradient(spread:pad, x1:0.5, y1:1, x2:0.5, y2:0, stop:0 rgba(0, 113, 255, 255), stop:1 rgba(91, 171, 252, 255));
+}
+QDoubleSpinBox {
+	border-style: solid;
+	border-width: 1px;
+	border-color: qlineargradient(spread:pad, x1:0.5, y1:1, x2:0.5, y2:0, stop:0 rgba(0, 113, 255, 255), stop:1 rgba(91, 171, 252, 255));
+}
+QTimeEdit {
+	border-style: solid;
+	border-width: 1px;
+	border-color: qlineargradient(spread:pad, x1:0.5, y1:1, x2:0.5, y2:0, stop:0 rgba(0, 113, 255, 255), stop:1 rgba(91, 171, 252, 255));
+}
+QDateTimeEdit {
+	border-style: solid;
+	border-width: 1px;
+	border-color: qlineargradient(spread:pad, x1:0.5, y1:1, x2:0.5, y2:0, stop:0 rgba(0, 113, 255, 255), stop:1 rgba(91, 171, 252, 255));
+}
+QDateEdit {
+	border-style: solid;
+	border-width: 1px;
+	border-color: qlineargradient(spread:pad, x1:0.5, y1:1, x2:0.5, y2:0, stop:0 rgba(0, 113, 255, 255), stop:1 rgba(91, 171, 252, 255));
+}
+
+QToolBox {
+	color: #a9b7c6;
+	background-color:#000000;
+}
+QToolBox::tab {
+	color: #a9b7c6;
+	background-color:#000000;
+}
+QToolBox::tab:selected {
+	color: #FFFFFF;
+	background-color:#000000;
+}
+QScrollArea {
+	color: #FFFFFF;
+	background-color:#000000;
+}
+QSlider::groove:horizontal {
+	height: 5px;
+	background-color: qlineargradient(spread:pad, x1:0.5, y1:1, x2:0.5, y2:0, stop:0 rgba(49, 147, 250, 255), stop:1 rgba(34, 142, 255, 255));
+}
+QSlider::groove:vertical {
+	width: 5px;
+	background-color: qlineargradient(spread:pad, x1:0.5, y1:1, x2:0.5, y2:0, stop:0 rgba(49, 147, 250, 255), stop:1 rgba(34, 142, 255, 255));
+}
+QSlider::handle:horizontal {
+	background: rgb(253,253,253);
+	border-style: solid;
+	border-width: 1px;
+	border-color: rgb(207,207,207);
+	width: 12px;
+	margin: -5px 0;
+	border-radius: 7px;
+}
+QSlider::handle:vertical {
+	background: rgb(253,253,253);
+	border-style: solid;
+	border-width: 1px;
+	border-color: rgb(207,207,207);
+	height: 12px;
+	margin: 0 -5px;
+	border-radius: 7px;
+}
+QSlider::add-page:horizontal {
+    background: rgb(181,181,181);
+}
+QSlider::add-page:vertical {
+    background: rgb(181,181,181);
+}
+QSlider::sub-page:horizontal {
+    background-color: qlineargradient(spread:pad, x1:0.5, y1:1, x2:0.5, y2:0, stop:0 rgba(49, 147, 250, 255), stop:1 rgba(34, 142, 255, 255));
+}
+QSlider::sub-page:vertical {
+    background-color: qlineargradient(spread:pad, y1:0.5, x1:1, y2:0.5, x2:0, stop:0 rgba(49, 147, 250, 255), stop:1 rgba(34, 142, 255, 255));
+}
+QScrollBar:horizontal {
+	max-height: 20px;
+	border: 1px transparent grey;
+	margin: 0px 20px 0px 20px;
+}
+QScrollBar:vertical {
+	max-width: 20px;
+	border: 1px transparent grey;
+	margin: 20px 0px 20px 0px;
+}
+QScrollBar::handle:horizontal {
+	background: rgb(253,253,253);
+	border-style: solid;
+	border-width: 1px;
+	border-color: rgb(207,207,207);
+	border-radius: 7px;
+	min-width: 25px;
+}
+QScrollBar::handle:horizontal:hover {
+	background: rgb(253,253,253);
+	border-style: solid;
+	border-width: 1px;
+	border-color: rgb(147, 200, 200);
+	border-radius: 7px;
+	min-width: 25px;
+}
+QScrollBar::handle:vertical {
+	background: rgb(253,253,253);
+	border-style: solid;
+	border-width: 1px;
+	border-color: rgb(207,207,207);
+	border-radius: 7px;
+	min-height: 25px;
+}
+QScrollBar::handle:vertical:hover {
+	background: rgb(253,253,253);
+	border-style: solid;
+	border-width: 1px;
+	border-color: rgb(147, 200, 200);
+	border-radius: 7px;
+	min-height: 25px;
+}
+QScrollBar::add-line:horizontal {
+   border: 2px transparent grey;
+   border-top-right-radius: 7px;
+   border-bottom-right-radius: 7px;
+   background: rgba(34, 142, 255, 255);
+   width: 20px;
+   subcontrol-position: right;
+   subcontrol-origin: margin;
+}
+QScrollBar::add-line:horizontal:pressed {
+   border: 2px transparent grey;
+   border-top-right-radius: 7px;
+   border-bottom-right-radius: 7px;
+   background: rgb(181,181,181);
+   width: 20px;
+   subcontrol-position: right;
+   subcontrol-origin: margin;
+}
+QScrollBar::add-line:vertical {
+   border: 2px transparent grey;
+   border-bottom-left-radius: 7px;
+   border-bottom-right-radius: 7px;
+   background: rgba(34, 142, 255, 255);
+   height: 20px;
+   subcontrol-position: bottom;
+   subcontrol-origin: margin;
+}
+QScrollBar::add-line:vertical:pressed {
+   border: 2px transparent grey;
+   border-bottom-left-radius: 7px;
+   border-bottom-right-radius: 7px;
+   background: rgb(181,181,181);
+   height: 20px;
+   subcontrol-position: bottom;
+   subcontrol-origin: margin;
+}
+QScrollBar::sub-line:horizontal {
+   border: 2px transparent grey;
+   border-top-left-radius: 7px;
+   border-bottom-left-radius: 7px;
+   background: rgba(34, 142, 255, 255);
+   width: 20px;
+   subcontrol-position: left;
+   subcontrol-origin: margin;
+}
+QScrollBar::sub-line:horizontal:pressed {
+   border: 2px transparent grey;
+   border-top-left-radius: 7px;
+   border-bottom-left-radius: 7px;
+   background: rgb(181,181,181);
+   width: 20px;
+   subcontrol-position: left;
+   subcontrol-origin: margin;
+}
+QScrollBar::sub-line:vertical {
+   border: 2px transparent grey;
+   border-top-left-radius: 7px;
+   border-top-right-radius: 7px;
+   background: rgba(34, 142, 255, 255);
+   height: 20px;
+   subcontrol-position: top;
+   subcontrol-origin: margin;
+}
+QScrollBar::sub-line:vertical:pressed {
+   border: 2px transparent grey;
+   border-top-left-radius: 7px;
+   border-top-right-radius: 7px;
+   background: rgb(181,181,181);
+   height: 20px;
+   subcontrol-position: top;
+   subcontrol-origin: margin;
+}
+QScrollBar::left-arrow:horizontal {
+   border: 1px transparent grey;
+   border-top-left-radius: 3px;
+   border-bottom-left-radius: 3px;
+   width: 6px;
+   height: 6px;
+   background: white;
+}
+QScrollBar::right-arrow:horizontal {
+   border: 1px transparent grey;
+   border-top-right-radius: 3px;
+   border-bottom-right-radius: 3px;
+   width: 6px;
+   height: 6px;
+   background: white;
+}
+QScrollBar::up-arrow:vertical {
+   border: 1px transparent grey;
+   border-top-left-radius: 3px;
+   border-top-right-radius: 3px;
+   width: 6px;
+   height: 6px;
+   background: white;
+}
+QScrollBar::down-arrow:vertical {
+   border: 1px transparent grey;
+   border-bottom-left-radius: 3px;
+   border-bottom-right-radius: 3px;
+   width: 6px;
+   height: 6px;
+   background: white;
+}
+QScrollBar::add-page:horizontal, QScrollBar::sub-page:horizontal {
+   background: none;
+}
+QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {
+   background: none;
+}
 </string>
   </property>
   <widget class="QWidget" name="centralwidget">
@@ -526,37 +616,48 @@ QPushButton:hover
    <widget class="QLabel" name="label">
     <property name="geometry">
      <rect>
-      <x>165</x>
-      <y>11</y>
-      <width>595</width>
+      <x>9</x>
+      <y>-10</y>
+      <width>911</width>
       <height>72</height>
      </rect>
     </property>
     <property name="font">
      <font>
-      <family>Simple Outline Pat</family>
+      <family>El Messiri</family>
       <pointsize>23</pointsize>
-      <weight>50</weight>
+      <weight>75</weight>
       <italic>false</italic>
-      <bold>false</bold>
+      <bold>true</bold>
      </font>
     </property>
     <property name="styleSheet">
-     <string notr="true">
-font: 23pt &quot;Simple Outline Pat&quot;;</string>
+     <string notr="true"/>
     </property>
     <property name="text">
      <string> برنامج انشاء ايصالات الصيانة الشهرية</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
     </property>
    </widget>
    <widget class="Line" name="line">
     <property name="geometry">
      <rect>
       <x>11</x>
-      <y>45</y>
+      <y>20</y>
       <width>147</width>
       <height>16</height>
      </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>El Messiri</family>
+      <pointsize>14</pointsize>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true"/>
     </property>
     <property name="orientation">
      <enum>Qt::Horizontal</enum>
@@ -566,10 +667,19 @@ font: 23pt &quot;Simple Outline Pat&quot;;</string>
     <property name="geometry">
      <rect>
       <x>767</x>
-      <y>45</y>
+      <y>20</y>
       <width>146</width>
       <height>16</height>
      </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>El Messiri</family>
+      <pointsize>14</pointsize>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true"/>
     </property>
     <property name="orientation">
      <enum>Qt::Horizontal</enum>
@@ -579,20 +689,27 @@ font: 23pt &quot;Simple Outline Pat&quot;;</string>
     <property name="geometry">
      <rect>
       <x>150</x>
-      <y>680</y>
+      <y>577</y>
       <width>627</width>
-      <height>81</height>
+      <height>21</height>
      </rect>
     </property>
     <property name="font">
      <font>
-      <pointsize>-1</pointsize>
+      <family>El Messiri</family>
+      <pointsize>14</pointsize>
       <weight>75</weight>
       <bold>true</bold>
      </font>
     </property>
+    <property name="styleSheet">
+     <string notr="true"/>
+    </property>
     <property name="text">
-     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:13px;&quot;&gt;تم تصميم و برمجة هذا البرنامج بواسطة المهندس/عبدالرحمن رجب قابيل&lt;/span&gt;&lt;/p&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:13px;&quot;&gt;AK-Development 2022 جميع حقوق النشر محفوظة لـ ©&lt;/span&gt;&lt;/p&gt;&lt;p align=&quot;center&quot;&gt;&lt;a href=&quot;https://www.linkedin.com/in/abdulrahman-kabil-5729621a2/&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0000ff;&quot;&gt;linkedIn&lt;/span&gt;&lt;/a&gt;&lt;span style=&quot; font-size:13px;&quot;&gt; , &lt;/span&gt;&lt;a href=&quot;mailto:abdulrahman.ragab.kabil@gmail.com&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0000ff;&quot;&gt;email&lt;/span&gt;&lt;/a&gt;&lt;span style=&quot; font-size:13px;&quot;&gt; , (+20) 1280059456 - 1149312512&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:13px;&quot;&gt;تم تصميم و برمجة هذا البرنامج بواسطة المهندس/عبدالرحمن رجب قابيل&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+    </property>
+    <property name="openExternalLinks">
+     <bool>true</bool>
     </property>
    </widget>
    <widget class="QLineEdit" name="lineEdit_3">
@@ -601,23 +718,29 @@ font: 23pt &quot;Simple Outline Pat&quot;;</string>
     </property>
     <property name="geometry">
      <rect>
-      <x>670</x>
-      <y>469</y>
+      <x>650</x>
+      <y>389</y>
       <width>71</width>
       <height>50</height>
      </rect>
     </property>
     <property name="font">
      <font>
-      <family>Arial</family>
-      <pointsize>20</pointsize>
-      <weight>9</weight>
+      <family>El Messiri</family>
+      <pointsize>16</pointsize>
+      <weight>75</weight>
       <italic>false</italic>
-      <bold>false</bold>
+      <bold>true</bold>
      </font>
     </property>
+    <property name="focusPolicy">
+     <enum>Qt::NoFocus</enum>
+    </property>
+    <property name="layoutDirection">
+     <enum>Qt::RightToLeft</enum>
+    </property>
     <property name="styleSheet">
-     <string notr="true">font: 75 20pt &quot;Arial&quot;;</string>
+     <string notr="true"/>
     </property>
     <property name="text">
      <string>.pdf</string>
@@ -629,23 +752,37 @@ font: 23pt &quot;Simple Outline Pat&quot;;</string>
    <widget class="QPushButton" name="pushButton_7">
     <property name="geometry">
      <rect>
-      <x>320</x>
-      <y>390</y>
-      <width>52</width>
+      <x>310</x>
+      <y>316</y>
+      <width>41</width>
       <height>16</height>
      </rect>
     </property>
     <property name="minimumSize">
      <size>
-      <width>52</width>
+      <width>0</width>
       <height>0</height>
      </size>
+    </property>
+    <property name="font">
+     <font>
+      <family>El Messiri</family>
+      <pointsize>14</pointsize>
+      <weight>75</weight>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="focusPolicy">
+     <enum>Qt::NoFocus</enum>
     </property>
     <property name="toolTip">
      <string notr="true">&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;right&quot;&gt;&lt;span style=&quot; font-size:7pt; font-weight:600;&quot;&gt;في حالة الحاجة الي طباعة عمارات بشكل فردي &lt;/span&gt;&lt;/p&gt;&lt;p align=&quot;right&quot;&gt;&lt;span style=&quot; font-size:7pt; font-weight:600;&quot;&gt;-:يجب ادخال الاكواد الخاص بها علي هذا النحو&lt;/span&gt;&lt;/p&gt;&lt;p align=&quot;right&quot;&gt;&lt;span style=&quot; font-size:7pt; font-weight:600;&quot;&gt;كود العمارة الاولي-كود العمارة الثانية-وهكذااا&lt;/span&gt;&lt;/p&gt;&lt;p align=&quot;right&quot;&gt;&lt;span style=&quot; font-size:7pt; font-weight:600;&quot;&gt;غير ذلك من فضلك اترك الخانة فارغة&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
     </property>
+    <property name="styleSheet">
+     <string notr="true"/>
+    </property>
     <property name="text">
-     <string>؟</string>
+     <string>!</string>
     </property>
    </widget>
    <widget class="QLineEdit" name="lineEdit_13">
@@ -654,14 +791,26 @@ font: 23pt &quot;Simple Outline Pat&quot;;</string>
     </property>
     <property name="geometry">
      <rect>
-      <x>30</x>
-      <y>330</y>
+      <x>10</x>
+      <y>260</y>
       <width>241</width>
       <height>51</height>
      </rect>
     </property>
+    <property name="font">
+     <font>
+      <family>El Messiri</family>
+      <pointsize>16</pointsize>
+      <weight>75</weight>
+      <italic>false</italic>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="layoutDirection">
+     <enum>Qt::RightToLeft</enum>
+    </property>
     <property name="styleSheet">
-     <string notr="true">font: 75 20pt &quot;Arial&quot;;</string>
+     <string notr="true"/>
     </property>
     <property name="inputMask">
      <string/>
@@ -674,9 +823,9 @@ font: 23pt &quot;Simple Outline Pat&quot;;</string>
     <property name="geometry">
      <rect>
       <x>260</x>
-      <y>340</y>
+      <y>260</y>
       <width>141</width>
-      <height>31</height>
+      <height>50</height>
      </rect>
     </property>
     <property name="baseSize">
@@ -687,16 +836,15 @@ font: 23pt &quot;Simple Outline Pat&quot;;</string>
     </property>
     <property name="font">
      <font>
-      <family>Arial</family>
-      <pointsize>20</pointsize>
-      <weight>9</weight>
+      <family>El Messiri</family>
+      <pointsize>16</pointsize>
+      <weight>75</weight>
       <italic>false</italic>
-      <bold>false</bold>
+      <bold>true</bold>
      </font>
     </property>
     <property name="styleSheet">
-     <string notr="true">
-font: 75 20pt &quot;Arial&quot;;</string>
+     <string notr="true"/>
     </property>
     <property name="text">
      <string>رقم التليفون</string>
@@ -708,23 +856,29 @@ font: 75 20pt &quot;Arial&quot;;</string>
     </property>
     <property name="geometry">
      <rect>
-      <x>30</x>
-      <y>469</y>
-      <width>621</width>
+      <x>10</x>
+      <y>389</y>
+      <width>631</width>
       <height>50</height>
      </rect>
     </property>
     <property name="font">
      <font>
-      <family>Arial</family>
-      <pointsize>20</pointsize>
-      <weight>9</weight>
+      <family>El Messiri</family>
+      <pointsize>16</pointsize>
+      <weight>75</weight>
       <italic>false</italic>
-      <bold>false</bold>
+      <bold>true</bold>
      </font>
     </property>
+    <property name="focusPolicy">
+     <enum>Qt::NoFocus</enum>
+    </property>
+    <property name="layoutDirection">
+     <enum>Qt::RightToLeft</enum>
+    </property>
     <property name="styleSheet">
-     <string notr="true">font: 75 20pt &quot;Arial&quot;;</string>
+     <string notr="true"/>
     </property>
     <property name="placeholderText">
      <string>اسم الملف</string>
@@ -739,10 +893,10 @@ font: 75 20pt &quot;Arial&quot;;</string>
    <widget class="QLabel" name="label_4">
     <property name="geometry">
      <rect>
-      <x>800</x>
-      <y>400</y>
-      <width>52</width>
-      <height>38</height>
+      <x>580</x>
+      <y>329</y>
+      <width>81</width>
+      <height>50</height>
      </rect>
     </property>
     <property name="baseSize">
@@ -753,16 +907,15 @@ font: 75 20pt &quot;Arial&quot;;</string>
     </property>
     <property name="font">
      <font>
-      <family>Arial</family>
-      <pointsize>20</pointsize>
-      <weight>9</weight>
+      <family>El Messiri</family>
+      <pointsize>16</pointsize>
+      <weight>75</weight>
       <italic>false</italic>
-      <bold>false</bold>
+      <bold>true</bold>
      </font>
     </property>
     <property name="styleSheet">
-     <string notr="true">
-font: 75 20pt &quot;Arial&quot;;</string>
+     <string notr="true"/>
     </property>
     <property name="text">
      <string>سنــة</string>
@@ -771,18 +924,22 @@ font: 75 20pt &quot;Arial&quot;;</string>
    <widget class="QPushButton" name="pushButton_4">
     <property name="geometry">
      <rect>
-      <x>750</x>
-      <y>463</y>
-      <width>151</width>
+      <x>730</x>
+      <y>383</y>
+      <width>181</width>
       <height>61</height>
      </rect>
     </property>
     <property name="font">
      <font>
-      <pointsize>-1</pointsize>
+      <family>El Messiri</family>
+      <pointsize>14</pointsize>
       <weight>75</weight>
       <bold>true</bold>
      </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true"/>
     </property>
     <property name="text">
      <string>اختر مكان الحفظ</string>
@@ -800,14 +957,29 @@ font: 75 20pt &quot;Arial&quot;;</string>
     </property>
     <property name="geometry">
      <rect>
-      <x>410</x>
-      <y>260</y>
-      <width>331</width>
+      <x>470</x>
+      <y>196</y>
+      <width>271</width>
       <height>51</height>
      </rect>
     </property>
+    <property name="font">
+     <font>
+      <family>El Messiri</family>
+      <pointsize>16</pointsize>
+      <weight>75</weight>
+      <italic>false</italic>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="focusPolicy">
+     <enum>Qt::NoFocus</enum>
+    </property>
+    <property name="layoutDirection">
+     <enum>Qt::RightToLeft</enum>
+    </property>
     <property name="styleSheet">
-     <string notr="true">font: 75 20pt &quot;Arial&quot;;</string>
+     <string notr="true"/>
     </property>
     <property name="clearButtonEnabled">
      <bool>false</bool>
@@ -816,10 +988,10 @@ font: 75 20pt &quot;Arial&quot;;</string>
    <widget class="QLabel" name="label_21">
     <property name="geometry">
      <rect>
-      <x>330</x>
-      <y>190</y>
-      <width>411</width>
-      <height>38</height>
+      <x>380</x>
+      <y>120</y>
+      <width>311</width>
+      <height>50</height>
      </rect>
     </property>
     <property name="baseSize">
@@ -830,16 +1002,15 @@ font: 75 20pt &quot;Arial&quot;;</string>
     </property>
     <property name="font">
      <font>
-      <family>Arial</family>
-      <pointsize>20</pointsize>
-      <weight>9</weight>
+      <family>El Messiri</family>
+      <pointsize>16</pointsize>
+      <weight>75</weight>
       <italic>false</italic>
-      <bold>false</bold>
+      <bold>true</bold>
      </font>
     </property>
     <property name="styleSheet">
-     <string notr="true">
-font: 75 20pt &quot;Arial&quot;;</string>
+     <string notr="true"/>
     </property>
     <property name="text">
      <string>عدد الايصالات في الصفحة الواحده</string>
@@ -848,10 +1019,10 @@ font: 75 20pt &quot;Arial&quot;;</string>
    <widget class="QLabel" name="label_12">
     <property name="geometry">
      <rect>
-      <x>310</x>
-      <y>410</y>
+      <x>320</x>
+      <y>325</y>
       <width>161</width>
-      <height>31</height>
+      <height>50</height>
      </rect>
     </property>
     <property name="baseSize">
@@ -862,16 +1033,15 @@ font: 75 20pt &quot;Arial&quot;;</string>
     </property>
     <property name="font">
      <font>
-      <family>Arial</family>
-      <pointsize>20</pointsize>
-      <weight>9</weight>
+      <family>El Messiri</family>
+      <pointsize>16</pointsize>
+      <weight>75</weight>
       <italic>false</italic>
-      <bold>false</bold>
+      <bold>true</bold>
      </font>
     </property>
     <property name="styleSheet">
-     <string notr="true">
-font: 75 20pt &quot;Arial&quot;;</string>
+     <string notr="true"/>
     </property>
     <property name="text">
      <string>اكواد العمارات</string>
@@ -880,18 +1050,22 @@ font: 75 20pt &quot;Arial&quot;;</string>
    <widget class="QPushButton" name="pushButton">
     <property name="geometry">
      <rect>
-      <x>750</x>
-      <y>105</y>
-      <width>151</width>
+      <x>730</x>
+      <y>52</y>
+      <width>181</width>
       <height>61</height>
      </rect>
     </property>
     <property name="font">
      <font>
-      <pointsize>-1</pointsize>
+      <family>El Messiri</family>
+      <pointsize>14</pointsize>
       <weight>75</weight>
       <bold>true</bold>
      </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true"/>
     </property>
     <property name="text">
      <string>اختر ملف العمارات</string>
@@ -906,14 +1080,26 @@ font: 75 20pt &quot;Arial&quot;;</string>
    <widget class="QLineEdit" name="lineEdit_4">
     <property name="geometry">
      <rect>
-      <x>620</x>
-      <y>400</y>
-      <width>121</width>
+      <x>490</x>
+      <y>325</y>
+      <width>101</width>
       <height>50</height>
      </rect>
     </property>
+    <property name="font">
+     <font>
+      <family>El Messiri</family>
+      <pointsize>16</pointsize>
+      <weight>75</weight>
+      <italic>false</italic>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="layoutDirection">
+     <enum>Qt::RightToLeft</enum>
+    </property>
     <property name="styleSheet">
-     <string notr="true">font: 75 20pt &quot;Arial&quot;;</string>
+     <string notr="true"/>
     </property>
     <property name="inputMask">
      <string/>
@@ -929,17 +1115,21 @@ font: 75 20pt &quot;Arial&quot;;</string>
     <property name="geometry">
      <rect>
       <x>750</x>
-      <y>255</y>
+      <y>196</y>
       <width>151</width>
-      <height>61</height>
+      <height>51</height>
      </rect>
     </property>
     <property name="font">
      <font>
-      <pointsize>-1</pointsize>
+      <family>El Messiri</family>
+      <pointsize>14</pointsize>
       <weight>75</weight>
       <bold>true</bold>
      </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true"/>
     </property>
     <property name="text">
      <string>صورة الخلفية</string>
@@ -955,10 +1145,19 @@ font: 75 20pt &quot;Arial&quot;;</string>
     <property name="geometry">
      <rect>
       <x>30</x>
-      <y>620</y>
+      <y>525</y>
       <width>871</width>
       <height>51</height>
      </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>El Messiri</family>
+      <pointsize>14</pointsize>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true"/>
     </property>
     <property name="value">
      <number>0</number>
@@ -970,14 +1169,26 @@ font: 75 20pt &quot;Arial&quot;;</string>
     </property>
     <property name="geometry">
      <rect>
-      <x>30</x>
-      <y>400</y>
-      <width>281</width>
+      <x>10</x>
+      <y>325</y>
+      <width>301</width>
       <height>51</height>
      </rect>
     </property>
+    <property name="font">
+     <font>
+      <family>El Messiri</family>
+      <pointsize>16</pointsize>
+      <weight>75</weight>
+      <italic>false</italic>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="layoutDirection">
+     <enum>Qt::RightToLeft</enum>
+    </property>
     <property name="styleSheet">
-     <string notr="true">font: 75 20pt &quot;Arial&quot;;</string>
+     <string notr="true"/>
     </property>
     <property name="placeholderText">
      <string>xxxx-xxxx-xxxx.......</string>
@@ -989,10 +1200,10 @@ font: 75 20pt &quot;Arial&quot;;</string>
    <widget class="QLabel" name="label_2">
     <property name="geometry">
      <rect>
-      <x>550</x>
-      <y>400</y>
+      <x>790</x>
+      <y>325</y>
       <width>61</width>
-      <height>38</height>
+      <height>50</height>
      </rect>
     </property>
     <property name="baseSize">
@@ -1003,16 +1214,15 @@ font: 75 20pt &quot;Arial&quot;;</string>
     </property>
     <property name="font">
      <font>
-      <family>Arial</family>
-      <pointsize>20</pointsize>
-      <weight>9</weight>
+      <family>El Messiri</family>
+      <pointsize>16</pointsize>
+      <weight>75</weight>
       <italic>false</italic>
-      <bold>false</bold>
+      <bold>true</bold>
      </font>
     </property>
     <property name="styleSheet">
-     <string notr="true">
-font: 75 20pt &quot;Arial&quot;;</string>
+     <string notr="true"/>
     </property>
     <property name="text">
      <string>شــهر</string>
@@ -1022,10 +1232,21 @@ font: 75 20pt &quot;Arial&quot;;</string>
     <property name="geometry">
      <rect>
       <x>350</x>
-      <y>540</y>
+      <y>450</y>
       <width>231</width>
       <height>64</height>
      </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>El Messiri</family>
+      <pointsize>14</pointsize>
+      <weight>75</weight>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true"/>
     </property>
     <property name="text">
      <string/>
@@ -1045,9 +1266,9 @@ font: 75 20pt &quot;Arial&quot;;</string>
     <property name="geometry">
      <rect>
       <x>750</x>
-      <y>340</y>
+      <y>260</y>
       <width>141</width>
-      <height>31</height>
+      <height>50</height>
      </rect>
     </property>
     <property name="baseSize">
@@ -1058,16 +1279,15 @@ font: 75 20pt &quot;Arial&quot;;</string>
     </property>
     <property name="font">
      <font>
-      <family>Arial</family>
-      <pointsize>20</pointsize>
-      <weight>9</weight>
+      <family>El Messiri</family>
+      <pointsize>16</pointsize>
+      <weight>50</weight>
       <italic>false</italic>
       <bold>false</bold>
      </font>
     </property>
     <property name="styleSheet">
-     <string notr="true">
-font: 75 20pt &quot;Arial&quot;;</string>
+     <string notr="true"/>
     </property>
     <property name="text">
      <string>اسم الشركة</string>
@@ -1076,15 +1296,26 @@ font: 75 20pt &quot;Arial&quot;;</string>
    <widget class="QComboBox" name="comboBox">
     <property name="geometry">
      <rect>
-      <x>480</x>
-      <y>400</y>
+      <x>670</x>
+      <y>325</y>
       <width>71</width>
       <height>51</height>
      </rect>
     </property>
+    <property name="font">
+     <font>
+      <family>El Messiri</family>
+      <pointsize>14</pointsize>
+      <weight>75</weight>
+      <italic>false</italic>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="layoutDirection">
+     <enum>Qt::RightToLeft</enum>
+    </property>
     <property name="styleSheet">
-     <string notr="true">
-font: 75 20pt &quot;Arial&quot;;</string>
+     <string notr="true"/>
     </property>
     <item>
      <property name="text">
@@ -1150,15 +1381,26 @@ font: 75 20pt &quot;Arial&quot;;</string>
    <widget class="QComboBox" name="comboBox_5">
     <property name="geometry">
      <rect>
-      <x>142</x>
-      <y>185</y>
+      <x>160</x>
+      <y>120</y>
       <width>201</width>
       <height>51</height>
      </rect>
     </property>
+    <property name="font">
+     <font>
+      <family>El Messiri</family>
+      <pointsize>14</pointsize>
+      <weight>75</weight>
+      <italic>false</italic>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="layoutDirection">
+     <enum>Qt::RightToLeft</enum>
+    </property>
     <property name="styleSheet">
-     <string notr="true">
-font: 75 20pt &quot;Arial&quot;;</string>
+     <string notr="true"/>
     </property>
     <item>
      <property name="text">
@@ -1178,13 +1420,25 @@ font: 75 20pt &quot;Arial&quot;;</string>
     <property name="geometry">
      <rect>
       <x>410</x>
-      <y>330</y>
+      <y>260</y>
       <width>331</width>
       <height>51</height>
      </rect>
     </property>
+    <property name="font">
+     <font>
+      <family>El Messiri</family>
+      <pointsize>16</pointsize>
+      <weight>75</weight>
+      <italic>false</italic>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="layoutDirection">
+     <enum>Qt::RightToLeft</enum>
+    </property>
     <property name="styleSheet">
-     <string notr="true">font: 75 20pt &quot;Arial&quot;;</string>
+     <string notr="true"/>
     </property>
     <property name="clearButtonEnabled">
      <bool>true</bool>
@@ -1196,14 +1450,29 @@ font: 75 20pt &quot;Arial&quot;;</string>
     </property>
     <property name="geometry">
      <rect>
-      <x>30</x>
-      <y>110</y>
+      <x>10</x>
+      <y>60</y>
       <width>711</width>
       <height>51</height>
      </rect>
     </property>
+    <property name="font">
+     <font>
+      <family>El Messiri</family>
+      <pointsize>16</pointsize>
+      <weight>75</weight>
+      <italic>false</italic>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="focusPolicy">
+     <enum>Qt::NoFocus</enum>
+    </property>
+    <property name="layoutDirection">
+     <enum>Qt::RightToLeft</enum>
+    </property>
     <property name="styleSheet">
-     <string notr="true">font: 75 20pt &quot;Arial&quot;;</string>
+     <string notr="true"/>
     </property>
     <property name="clearButtonEnabled">
      <bool>false</bool>
@@ -1215,14 +1484,29 @@ font: 75 20pt &quot;Arial&quot;;</string>
     </property>
     <property name="geometry">
      <rect>
-      <x>30</x>
-      <y>260</y>
-      <width>241</width>
+      <x>10</x>
+      <y>196</y>
+      <width>291</width>
       <height>51</height>
      </rect>
     </property>
+    <property name="font">
+     <font>
+      <family>El Messiri</family>
+      <pointsize>16</pointsize>
+      <weight>75</weight>
+      <italic>false</italic>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="focusPolicy">
+     <enum>Qt::NoFocus</enum>
+    </property>
+    <property name="layoutDirection">
+     <enum>Qt::RightToLeft</enum>
+    </property>
     <property name="styleSheet">
-     <string notr="true">font: 75 20pt &quot;Arial&quot;;</string>
+     <string notr="true"/>
     </property>
     <property name="clearButtonEnabled">
      <bool>false</bool>
@@ -1231,18 +1515,22 @@ font: 75 20pt &quot;Arial&quot;;</string>
    <widget class="QPushButton" name="pushButton_14">
     <property name="geometry">
      <rect>
-      <x>280</x>
-      <y>260</y>
-      <width>111</width>
+      <x>310</x>
+      <y>196</y>
+      <width>151</width>
       <height>51</height>
      </rect>
     </property>
     <property name="font">
      <font>
-      <pointsize>-1</pointsize>
+      <family>El Messiri</family>
+      <pointsize>13</pointsize>
       <weight>75</weight>
       <bold>true</bold>
      </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true"/>
     </property>
     <property name="text">
      <string>صورة التوقيع</string>
@@ -1257,20 +1545,34 @@ font: 75 20pt &quot;Arial&quot;;</string>
    <widget class="QPushButton" name="pushButton_8">
     <property name="geometry">
      <rect>
-      <x>280</x>
-      <y>240</y>
+      <x>260</x>
+      <y>176</y>
       <width>52</width>
       <height>16</height>
      </rect>
     </property>
     <property name="minimumSize">
      <size>
-      <width>52</width>
+      <width>0</width>
       <height>0</height>
      </size>
     </property>
+    <property name="font">
+     <font>
+      <family>El Messiri</family>
+      <pointsize>14</pointsize>
+      <weight>75</weight>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="focusPolicy">
+     <enum>Qt::NoFocus</enum>
+    </property>
     <property name="toolTip">
      <string notr="true">&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;right&quot;&gt;حجم الصورة المستحسن (390*190)&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+    </property>
+    <property name="styleSheet">
+     <string notr="true"/>
     </property>
     <property name="text">
      <string>!</string>
@@ -1279,23 +1581,109 @@ font: 75 20pt &quot;Arial&quot;;</string>
    <widget class="QPushButton" name="pushButton_9">
     <property name="geometry">
      <rect>
-      <x>750</x>
-      <y>235</y>
+      <x>713</x>
+      <y>176</y>
       <width>52</width>
       <height>16</height>
      </rect>
     </property>
     <property name="minimumSize">
      <size>
-      <width>52</width>
+      <width>0</width>
       <height>0</height>
      </size>
+    </property>
+    <property name="font">
+     <font>
+      <family>El Messiri</family>
+      <pointsize>14</pointsize>
+      <weight>75</weight>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="focusPolicy">
+     <enum>Qt::NoFocus</enum>
     </property>
     <property name="toolTip">
      <string notr="true">&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;right&quot;&gt;حجم الصورة المستحسن (500*500)&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
     </property>
+    <property name="styleSheet">
+     <string notr="true"/>
+    </property>
     <property name="text">
      <string>!</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_29">
+    <property name="enabled">
+     <bool>true</bool>
+    </property>
+    <property name="geometry">
+     <rect>
+      <x>-70</x>
+      <y>590</y>
+      <width>1081</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="minimumSize">
+     <size>
+      <width>1000</width>
+      <height>0</height>
+     </size>
+    </property>
+    <property name="font">
+     <font>
+      <family>El Messiri</family>
+      <pointsize>11</pointsize>
+      <weight>75</weight>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="text">
+     <string>AK-Development 2023 جميع حقوق النشر محفوظة لـ ©</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_30">
+    <property name="enabled">
+     <bool>true</bool>
+    </property>
+    <property name="geometry">
+     <rect>
+      <x>-70</x>
+      <y>615</y>
+      <width>1081</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="minimumSize">
+     <size>
+      <width>0</width>
+      <height>0</height>
+     </size>
+    </property>
+    <property name="font">
+     <font>
+      <family>El Messiri</family>
+      <pointsize>11</pointsize>
+      <weight>75</weight>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="text">
+     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;(+20) 1280059456 - 1149312512   &lt;a href=&quot;mailto:abdulrahman.ragab.kabil@gmail.com&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0000ff;&quot;&gt;E-mail&lt;/span&gt;&lt;/a&gt;  -  &lt;a href=&quot;https://www.linkedin.com/in/abdulrahman-kabil-5729621a2/&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0000ff;&quot;&gt;LinkedIn&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
+    </property>
+    <property name="openExternalLinks">
+     <bool>true</bool>
+    </property>
+    <property name="textInteractionFlags">
+     <set>Qt::LinksAccessibleByMouse</set>
     </property>
    </widget>
   </widget>
@@ -1305,12 +1693,25 @@ font: 75 20pt &quot;Arial&quot;;</string>
      <x>0</x>
      <y>0</y>
      <width>924</width>
-     <height>26</height>
+     <height>18</height>
     </rect>
    </property>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
  </widget>
+ <tabstops>
+  <tabstop>pushButton</tabstop>
+  <tabstop>comboBox_5</tabstop>
+  <tabstop>pushButton_13</tabstop>
+  <tabstop>pushButton_14</tabstop>
+  <tabstop>lineEdit_11</tabstop>
+  <tabstop>lineEdit_13</tabstop>
+  <tabstop>comboBox</tabstop>
+  <tabstop>lineEdit_4</tabstop>
+  <tabstop>lineEdit_14</tabstop>
+  <tabstop>pushButton_4</tabstop>
+  <tabstop>pushButton_2</tabstop>
+ </tabstops>
  <resources>
   <include location="imgs.qrc"/>
  </resources>

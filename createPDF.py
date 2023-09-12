@@ -24,7 +24,8 @@ def createPDF_3(self,input_file,output_file,company_name,phone,codes,logo,signat
         """
         year=str(year)
         try:
-            df=pd.read_excel(input_file)
+            df=pd.read_excel(input_file, engine='openpyxl')
+            print(df.head)
             df=df[['serial','full_name','price','status','print_or_no']]
         except Exception as e :
             self.error.emit("خطأ في ملف البيانات\n"+str(e)+"\n يجب ان يحتوي الملف علي اعمدة من نوع \n [int64,object,int64,object,object]\n و اسمائها \n [serial,full_name,price,status,print_or_no]")
