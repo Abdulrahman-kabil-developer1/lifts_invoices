@@ -25,7 +25,6 @@ def createPDF_3(self,input_file,output_file,company_name,phone,codes,logo,signat
         year=str(year)
         try:
             df=pd.read_excel(input_file, engine='openpyxl')
-            print(df.head)
             df=df[['serial','full_name','price','status','print_or_no']]
         except Exception as e :
             self.error.emit("خطأ في ملف البيانات\n"+str(e)+"\n يجب ان يحتوي الملف علي اعمدة من نوع \n [int64,object,int64,object,object]\n و اسمائها \n [serial,full_name,price,status,print_or_no]")
@@ -95,9 +94,11 @@ def createPDF_3(self,input_file,output_file,company_name,phone,codes,logo,signat
                 month=(int(month1)+1)
                 if(month==13):
                     month=1
+                    year = int(year)+1
                 if(len(str(month))==1):
                     month="0"+str(month)
                 month=str(month)
+                year = str(year)
                 proc_serial=str(df.iloc[proc].values[0])+month+"/"+year[2:4]
                 days=str(check_month(int(month),int(year)))
             cur_r=28.25  #current Row to write in 
@@ -157,9 +158,16 @@ def createPDF_3(self,input_file,output_file,company_name,phone,codes,logo,signat
             c.drawRightString(19.8*cm,cur_r*cm-(count*invoice_width),text)
             cur_r-=1
             ############################################
-            text=arabic_text("تحريراً في : "+days+" / "+month+" / "+year)
-            c.drawRightString(19.8*cm,cur_r*cm-(count*invoice_width),text)
-            cur_r-=1
+            if(proc_status=="مؤخر"):
+                text=arabic_text("تحريراً في : "+days+" / "+month+" / "+year)
+                c.drawRightString(19.8*cm,cur_r*cm-(count*invoice_width),text)
+                cur_r-=1
+            else:
+                text=arabic_text(f"تحريراً في : 01 / {month} / {year}")
+                year = int(year)-1
+                year = str(year)
+                c.drawRightString(19.8*cm,cur_r*cm-(count*invoice_width),text)
+                cur_r-=1
             ############################################
             text=arabic_text("وتحرر هذا ايصالاً بالاستلام")
             c.drawCentredString(13.5*cm,cur_r*cm-(count*invoice_width),text)
@@ -200,6 +208,7 @@ def createPDF_3(self,input_file,output_file,company_name,phone,codes,logo,signat
                 c.line(-1*cm,8.9*cm,22*cm,8.9*cm)
                 c.line(7*cm,-1*cm,7*cm,29.7*cm)
             dont_save=0
+            
             
         if dont_save==0:
             c.save()
@@ -291,9 +300,11 @@ def createPDF_4(self,input_file,output_file,company_name,phone,codes,logo,signat
                 month=(int(month1)+1)
                 if(month==13):
                     month=1
+                    year = int(year)+1
                 if(len(str(month))==1):
                     month="0"+str(month)
                 month=str(month)
+                year = str(year)
                 proc_serial=str(df.iloc[proc].values[0])+month+"/"+year[2:4]
                 days=str(check_month(int(month),int(year)))
             cur_r=28.25    #current Row 
@@ -354,9 +365,16 @@ def createPDF_4(self,input_file,output_file,company_name,phone,codes,logo,signat
             c.drawRightString(19.8*cm,cur_r*cm-(count*invoice_width),text)
             cur_r-=0.7
             ############################################
-            text=arabic_text("تحريراً في : "+days+" / "+month+" / "+year)
-            c.drawRightString(19.8*cm,cur_r*cm-(count*invoice_width),text)
-            cur_r-=0.7
+            if(proc_status=="مؤخر"):
+                text=arabic_text("تحريراً في : "+days+" / "+month+" / "+year)
+                c.drawRightString(19.8*cm,cur_r*cm-(count*invoice_width),text)
+                cur_r-=0.7
+            else:
+                text=arabic_text(f"تحريراً في : 01 / {month} / {year}")
+                year = int(year)-1
+                year = str(year)
+                c.drawRightString(19.8*cm,cur_r*cm-(count*invoice_width),text)
+                cur_r-=0.7
             ############################################
             text=arabic_text("وتحرر هذا ايصالاً بالاستلام")
             c.drawCentredString(13.5*cm,cur_r*cm-(count*invoice_width),text)
