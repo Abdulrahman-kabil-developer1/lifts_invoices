@@ -164,10 +164,11 @@ def createPDF_3(self,input_file,output_file,company_name,phone,codes,logo,signat
                 cur_r-=1
             else:
                 text=arabic_text(f"تحريراً في : 01 / {month} / {year}")
-                year = int(year)-1
-                year = str(year)
                 c.drawRightString(19.8*cm,cur_r*cm-(count*invoice_width),text)
                 cur_r-=1
+                if (month=='01'):
+                    year = int(year)-1
+                    year = str(year)
             ############################################
             text=arabic_text("وتحرر هذا ايصالاً بالاستلام")
             c.drawCentredString(13.5*cm,cur_r*cm-(count*invoice_width),text)
@@ -371,10 +372,11 @@ def createPDF_4(self,input_file,output_file,company_name,phone,codes,logo,signat
                 cur_r-=0.7
             else:
                 text=arabic_text(f"تحريراً في : 01 / {month} / {year}")
-                year = int(year)-1
-                year = str(year)
                 c.drawRightString(19.8*cm,cur_r*cm-(count*invoice_width),text)
                 cur_r-=0.7
+                if (month=='01'):
+                    year = int(year)-1
+                    year = str(year)
             ############################################
             text=arabic_text("وتحرر هذا ايصالاً بالاستلام")
             c.drawCentredString(13.5*cm,cur_r*cm-(count*invoice_width),text)
