@@ -1,6 +1,7 @@
 
 from PyQt5.QtCore import QThread,pyqtSignal
-from createPDF import *
+from src.create_pdf_3 import create_pdf_3
+from src.create_pdf_4 import create_pdf_4
 
 class Create_Invoices(QThread):
    
@@ -25,9 +26,9 @@ class Create_Invoices(QThread):
     def run(self):
             try:
                 if(self.invoices_in_page==3):
-                    createPDF_3(self,self.input_file,self.output_file,self.company_name,self.phone,self.codes,self.logo,self.signature,self.month,self.year)
+                    create_pdf_3(self,self.input_file,self.output_file,self.company_name,self.phone,self.codes,self.logo,self.signature,self.month,self.year)
                 elif(self.invoices_in_page==4):
-                    createPDF_4(self,self.input_file,self.output_file,self.company_name,self.phone,self.codes,self.logo,self.signature,self.month,self.year)
+                    create_pdf_4(self,self.input_file,self.output_file,self.company_name,self.phone,self.codes,self.logo,self.signature,self.month,self.year)
                 return
             except Exception as e:
                 self.error.emit(str(e)) 

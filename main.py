@@ -2,9 +2,19 @@ import sys
 from PyQt5.QtGui import QIcon
 from PyQt5 import QtWidgets
 from PyQt5.QtWidgets import QMainWindow,QMessageBox,QApplication
-from UI import Ui_MainWindow as ui
-from assistant import check_path_exists,get_cur_month_year,update_last_dir,get_last_dir
-from createInvoices import Create_Invoices
+from design.UI import Ui_MainWindow as ui
+from src.assistant import check_path_exists,get_cur_month_year,update_last_dir,get_last_dir
+from src.createInvoices import Create_Invoices
+
+
+FONT_PATH = './fonts/Janna LT Bold.ttf'
+from reportlab.pdfbase import pdfmetrics
+from reportlab.pdfbase.ttfonts import TTFont
+pdfmetrics.registerFont(TTFont('Arabic',FONT_PATH))
+
+# MAIN_UI_PATH = './design.UI.ui'
+# from PyQt5.uic import loadUiType
+# MainUI,_ = loadUiType(MAIN_UI_PATH)
 
 """
     Abdulrahman Ragab Abdullah 
@@ -106,7 +116,6 @@ class Main(QMainWindow, ui):
         self.comboBox_5.setCurrentIndex(0)
         self.lineEdit_4.setText(self.current_year)
         
-
     def create_month_receipts(self):
         if self.comboBox_5.currentIndex()==0:
             invoices_in_page=3
@@ -173,6 +182,7 @@ class Main(QMainWindow, ui):
         self.pushButton_2.setEnabled(True)
         self.update_progress(0)
         return
+
     def show_info(self,msg):
         self.pushButton_2.setEnabled(True)
         QMessageBox.information(self, "info","نود اعلامك بانة:\n"+str(msg))   
@@ -192,8 +202,7 @@ class Main(QMainWindow, ui):
             self.show_error(e)
             self.update_progress(0)
             return
-            
-        
+                    
 def main():
     app = QApplication(sys.argv)
     window = Main()

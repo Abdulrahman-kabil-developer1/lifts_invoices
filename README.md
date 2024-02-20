@@ -1,27 +1,30 @@
 # lifts_invoices (Python - PyQt5)
-create monthly invoices for elevators company with (Arabic language) and GUI
+create monthly invoices with QR codes for elevators company with (Arabic language) and GUI
 
 
-## screenshots
-###   - create month invices interface
-![create month invoices](https://github.com/Abdulrahman-kabil-developer1/lifts_invoices/blob/main/standar%20files/Screenshot%203.png)
+## Screenshots
+###   - Create month invices interface
+![create month invoices](https://github.com/Abdulrahman-kabil-developer1/lifts_invoices/blob/main/screenshots/main.png)
 
 
-#### - create custom number invoices interface
-![create one invoice](https://github.com/Abdulrahman-kabil-developer1/lifts_invoices/blob/main/standar%20files/Screenshot%204.png)
+### - Create custom number invoices interface
+![create one invoice](https://github.com/Abdulrahman-kabil-developer1/lifts_invoices/blob/main/screenshots/print_some_invoices_feature.png)
 
-### - invoice 
-  ![invoice](https://github.com/Abdulrahman-Kabil-developer/lifts_invoices/blob/main/screenshots/Screenshot%202022-10-08%20002435.png)
+### - Front of invoice 
+  ![invoice_front](https://github.com/Abdulrahman-Kabil-developer/lifts_invoices/blob/main/screenshots/invoice_front.png)
 
-### Dependencies
+### - Back of invoice 
+  ![invoice_back](https://github.com/Abdulrahman-Kabil-developer/lifts_invoices/blob/main/screenshots/invoice_back.png)
+
+## Dependencies
 
 * Python3, PyQt5,PyQt5-tools(for QtDesigner)
 
-### Installing Libraries
+## Installing Libraries
 ```
 pip install -r requirements.txt
 ```
-### Executing program
+## Executing program
 
 * After installing all the necessary modules.
 * open project directory in your IDE and run project.py

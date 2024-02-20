@@ -4,6 +4,8 @@ import os
 import calendar
 import datetime
 
+import qrcode
+
 ############ convert int to text ############
 def first_to_text(first):
     if first==1:
@@ -105,7 +107,7 @@ def int_to_text(num):
     Returns:
         string: number in Arabic text
     """
-    num=int(num)
+    num=int(float(num))
     first=num%10
     second=int(num/10%10)
     third=int(num/100%10)
@@ -184,3 +186,24 @@ def check_path_exists(path):
     if os.path.exists(path):
         return True
     return False
+
+def format_dict_as_lines(data):
+    lines = [f"{key}: {value}" for key, value in data.items()]
+    return '\n'.join(lines)
+
+
+def generate_QR_code(data):
+    data = format_dict_as_lines(data)
+    qr = qrcode.QRCode(
+        version=4,
+        error_correction=qrcode.constants.ERROR_CORRECT_L,
+        box_size=10,
+        border=2,
+    )
+    # Add data to the QR code
+    qr.add_data(data)
+    qr.make(fit=True)
+
+    img = qr.make_image(fill_color="black", back_color="white")
+    
+    return img
