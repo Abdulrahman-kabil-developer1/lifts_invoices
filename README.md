@@ -3,7 +3,7 @@ create monthly invoices with QR codes for elevators company with (Arabic languag
 
 
 ## Screenshots
-###   - Create month invices interface
+###   - Create month invoices interface
 ![create month invoices](https://github.com/Abdulrahman-kabil-developer1/lifts_invoices/blob/main/screenshots/main.png)
 
 
@@ -31,6 +31,6 @@ pip install -r requirements.txt
 * or from your terminal and type: 
 ```
 cd /../../project_files
-python3 project.py
+python main.py
 
 ```
